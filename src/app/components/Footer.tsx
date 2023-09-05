@@ -33,7 +33,7 @@ export function NewSLetter() {
 export default function Footer() {
   return (
     <footer className="border-t border-white text-xs flex justify-between mx-8 pt-6 mt-24 mb-5 text-white font-mono">
-      <span className="flex items-center">
+      <span className="flex items-center whitespace-nowrap">
         <img src="/copyright.svg" alt="copyright" className="mr-[0.1rem] h-3" />
         {new Date().getFullYear()} SPARKZ
       </span>
