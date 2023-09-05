@@ -16,14 +16,14 @@ export function NewSLetter() {
           type="email"
           name="email"
           id="email"
-          className="p-2 bg-transparent border border-white w-full placeholder:font-mono"
+          className="p-2 bg-transparent border border-white w-full placeholder:font-mono rounded-none"
           placeholder="Enter Email Address"
         />
 
         <input
           type="button"
           value="Sign up"
-          className="font-mono bg-white p-2 b w-full text-black font-semibold"
+          className="font-mono bg-white p-2 b w-full text-black font-semibold rounded-none"
         />
       </form>
     </section>
@@ -34,11 +34,13 @@ export default function Footer() {
   return (
     <footer className="border-t border-white text-xs flex justify-between mx-8 pt-6 mt-24 mb-5 text-white font-mono">
       <span className="flex items-center">
-        <span className="">&copy;</span>
+        <img src="/copyright.svg" alt="copyright" className="mr-[0.1rem] h-3" />
         {new Date().getFullYear()} SPARKZ
       </span>
       <span className="space-x-4">
-        <Link href="#">Privacy Policy</Link>
+        <Link href="#" className="hidden sm:inline-block">
+          Privacy Policy
+        </Link>
         <Link href="#">Terms of Service</Link>
       </span>
     </footer>

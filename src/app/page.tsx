@@ -22,13 +22,13 @@ export default function Home() {
         </h1>
       </section>
 
-      <section className="relative mt-12 text-center sm:mx-8 h-[18rem] flex flex-col justify-evenly">
+      <section className="relative mt-12 text-center sm:mx-8 h-[20rem] flex flex-col justify-evenly">
         <div className="grid-background -z-10"></div>
 
-        <h3 className="text-lg text-transparent bg-clip-text bg-gradient-to-b from-textshade to-stone-700">
+        <h3 className="text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-b from-textshade to-stone-700">
           WHO WE ARE
         </h3>
-        <p className="text-textshade font-serrat w-11/12 md:w-3/5 mx-auto text-sm xs:text-base text-opacity-70">
+        <p className="text-textshade font-serrat w-11/12 md:w-3/5 mx-auto text-sm xs:text-lg text-opacity-70">
           We bring marketplace directly to the people. Sparkz{" "}
           <span className="text-white">streamlines</span> the web3 marketplace
           for both seasoned <span className="text-white">power users</span> and
