@@ -103,7 +103,11 @@ export default function ButtonConnect({ className }: { className: string }) {
                     type="button"
                   >
                     {account.ensAvatar && (
-                      <img src={account.ensAvatar} alt="avatar" className="" />
+                      <img
+                        src={account.ensAvatar}
+                        alt="avatar"
+                        className="h-10 w-10"
+                      />
                     )}
 
                     <span>{account.displayName}</span>
