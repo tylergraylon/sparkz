@@ -22,7 +22,7 @@ export default function DiscordJoin() {
       <img
         src="/discord.svg"
         alt="discord"
-        className="justify-self-end h-28 md:h-auto absolute top-5 -right-8 sm:right-1 md:static"
+        className="justify-self-end h-28 md:h-auto absolute top-5 -right-8 sm:right-1 md:static overflow-hidden"
       />
     </section>
   );

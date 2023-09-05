@@ -27,7 +27,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <header className="h-20  text-white px-10 flex items-center justify-between border-b border-[#E9EEEF] border-opacity-20">
+      <header className="h-20  text-white px-8 flex items-center justify-between border-b border-[#E9EEEF] border-opacity-20">
         <div className="text-lg space-x-2">
           <span className="rounded-full px-4 py-1 bg-white"></span>
           <span>SPARKZ</span>
