@@ -5,7 +5,7 @@ export function NewSLetter() {
     <section className="md:mx-auto mx-8 md:w-2/5 lg:w-2/6 space-y-4 text-textshade mt-12">
       <h1 className="">
         SignUp To <span className="text-complimentary_1">Sparkz</span>{" "}
-        NewsLetter
+        Newsletter
       </h1>
       <p className="font-serrat text-xs">
         Stay updated with our latest offer and development. we promise not to
