@@ -65,7 +65,6 @@ export default function ButtonConnect({ className }: { className: string }) {
                   </Button>
                 );
               }
-              console.log(account, chain);
 
               return (
                 <div>
