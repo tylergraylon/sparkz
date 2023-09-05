@@ -13,8 +13,8 @@ export default function NftCard({
   public_price,
 }: Partial<Props>) {
   return (
-    <div className="group h-72">
-      <div className="h-3/4 bg-black flex justify-center items-center">
+    <div className="group ">
+      <div className="h-56 bg-black flex justify-center items-center">
         <button
           className="font-mono font-semibold opacity-0 group-hover:opacity-100 p-3 bg-white 
                      transition-all duration-[620ms] ease-in-out"
@@ -24,7 +24,7 @@ export default function NftCard({
       </div>
 
       <div
-        className="h-1/4 flex px-3 py-3 justify-between transition-all 
+        className="flex px-3 py-3 justify-between transition-all 
                          duration-[620ms] ease-in-out font-mono 
                          text-white bg-[#4E4E4E] group-hover:bg-button_color 
                         bg-opacity-30 group-hover:text-black text-xs lg:text:sm"
