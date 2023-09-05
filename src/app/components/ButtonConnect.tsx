@@ -102,15 +102,10 @@ export default function ButtonConnect({ className }: { className: string }) {
                     onClick={openAccountModal}
                     type="button"
                   >
-                    <span>
-                      {account.ensAvatar && (
-                        <img
-                          src={account.ensAvatar}
-                          alt="avatar"
-                          className=""
-                        />
-                      )}
-                    </span>
+                    {account.ensAvatar && (
+                      <img src={account.ensAvatar} alt="avatar" className="" />
+                    )}
+
                     <span>{account.displayName}</span>
 
                     {/* {account.displayBalance
