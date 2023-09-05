@@ -3,6 +3,7 @@ import { Menu, Transition, Disclosure, Dialog } from "@headlessui/react";
 import Link from "next/link";
 import { Dispatch, SetStateAction } from "react";
 import { CommunityMenu, ResourcesMenu } from "./Header";
+import { ButtonConnect } from ".";
 
 type Props = {
   name: string;
@@ -76,7 +77,7 @@ export function MobileMenuPopover({ open, setOpen }: MobilePopoverProps) {
           as="div"
           className=""
         >
-          <nav className="md:hidden text-white bg-backgroundcolor_sec space-y-4 text-sm pb-10 divide-y divide-neutral-400">
+          <nav className="md:hidden text-white bg-backgroundcolor_sec space-y-4 text-sm pb-10">
             <div className="flex items-center justify-between px-5 pt-4">
               <div className="text-lg space-x-2">
                 <span className="rounded-full px-4 py-1 bg-white"></span>
@@ -100,7 +101,7 @@ export function MobileMenuPopover({ open, setOpen }: MobilePopoverProps) {
               </svg>
             </div>
 
-            <div className="px-6 font-mono pt-4">Connect Wallet</div>
+            <ButtonConnect className="px-6 font-mono pt-4" />
 
             <div className="divide-y divide-neutral-400 font-mono ">
               <div className="py-4 px-6">

@@ -1,4 +1,4 @@
-import { NftCard, NewSLetter, Footer, DiscordJoin } from "./components";
+import { NftCard, NewSLetter, DiscordJoin } from "./components";
 
 const Nfts = [
   {
@@ -70,7 +70,6 @@ export default function Home() {
 
       <DiscordJoin />
       <NewSLetter />
-      <Footer />
     </main>
   );
 }

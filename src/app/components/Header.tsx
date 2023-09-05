@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { MenuPopover, MobileMenuPopover } from ".";
+import { MenuPopover, MobileMenuPopover, ButtonConnect } from ".";
 import Link from "next/link";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 export const CommunityMenu = {
   name: "Community",
@@ -46,9 +47,7 @@ export default function Header() {
 
         <div className="flex justify-between">
           <div>
-            <button className="md:flex text-xs xl:text-sm hidden p-2 bg-white text-black font-mono font-semibold">
-              Connect Wallet
-            </button>
+            <ButtonConnect className="md:flex text-xs xl:text-sm hidden p-2 bg-white text-black font-mono font-semibold" />
 
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -2,7 +2,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Space_Mono, Montserrat } from "next/font/google";
-import { Header } from "./components";
+import { Header, Footer } from "./components";
+import { WalletContext } from "./context";
 
 const myFont = localFont({
   src: "../../public/fonts/conthrax-sb.woff2",
@@ -38,8 +39,11 @@ export default function RootLayout({
       className={`${myFont.className} ${space_mono.variable} ${montserrat.variable}`}
     >
       <body className="bg-backgroundcolor_pri tracking-normal">
-        <Header />
-        {children}
+        <WalletContext>
+          <Header />
+          {children}
+          <Footer />
+        </WalletContext>
       </body>
     </html>
   );
