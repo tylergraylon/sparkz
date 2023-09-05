@@ -36,7 +36,7 @@ export default function MenuPopover({ name, items }: Props) {
           </>
         )}
       </Menu.Button>
-      <Menu.Items className="absolute flex flex-col items-center divide-y divide-neutral-400 mt-3 px-7 py-3 left-0 bg-backgroundcolor_sec">
+      <Menu.Items className="absolute flex space-x-4 items-center mt-3 px-7 py-3 -left-4 bg-backgroundcolor_sec">
         {items.map((item) => (
           <Menu.Item key={item.name}>
             {({ active }) => (
@@ -76,8 +76,8 @@ export function MobileMenuPopover({ open, setOpen }: MobilePopoverProps) {
           as="div"
           className=""
         >
-          <nav className="md:hidden text-white bg-backgroundcolor_sec space-y-4 text-sm pb-10">
-            <div className="flex items-center justify-between px-5 pt-2">
+          <nav className="md:hidden text-white bg-backgroundcolor_sec space-y-4 text-sm pb-10 divide-y divide-neutral-400">
+            <div className="flex items-center justify-between px-5 pt-4">
               <div className="text-lg space-x-2">
                 <span className="rounded-full px-4 py-1 bg-white"></span>
                 <span>SPARKZ</span>
@@ -99,7 +99,9 @@ export function MobileMenuPopover({ open, setOpen }: MobilePopoverProps) {
                 />
               </svg>
             </div>
-            <button className="px-6 font-mono pt-4">Connect Wallet</button>
+
+            <div className="px-6 font-mono pt-4">Connect Wallet</div>
+
             <div className="divide-y divide-neutral-400 font-mono ">
               <div className="py-4 px-6">
                 <Link href="#">Company</Link>

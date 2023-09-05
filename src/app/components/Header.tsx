@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 import { MenuPopover, MobileMenuPopover } from ".";
+import Link from "next/link";
 
 export const CommunityMenu = {
   name: "Community",
   items: [
     { name: "Discord", link: "#" },
     { name: "Twitter", link: "#" },
+    { name: "Telegram", link: "#" },
     { name: "Medium", link: "#" },
   ],
 };
@@ -15,8 +17,9 @@ export const CommunityMenu = {
 export const ResourcesMenu = {
   name: "Resources",
   items: [
-    { name: "Tokenomics & Roadmap", link: "#" },
-    { name: "Terms & Conditions", link: "#" },
+    { name: "Whitepaper", link: "#" },
+    { name: "Roadmap", link: "#" },
+    { name: "Tokenomics", link: "#" },
   ],
 };
 
@@ -31,15 +34,19 @@ export default function Header() {
         </div>
 
         <div className="md:flex items-center space-x-5 text-xs xl:text-sm hidden font-mono">
-          <p>Company</p>
-          <p>Marketplace</p>
-          <MenuPopover {...CommunityMenu} />
+          <Link href="" className="cursor-pointer">
+            Company
+          </Link>
+          <Link href="" className="cursor-pointer">
+            Marketplace
+          </Link>
           <MenuPopover {...ResourcesMenu} />
+          <MenuPopover {...CommunityMenu} />
         </div>
 
         <div className="flex justify-between">
           <div>
-            <button className="md:flex text-xs xl:text-sm  hidden p-2 bg-white text-black font-mono font-semibold">
+            <button className="md:flex text-xs xl:text-sm hidden p-2 bg-white text-black font-mono font-semibold">
               Connect Wallet
             </button>
 

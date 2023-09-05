@@ -23,6 +23,7 @@ const config: Config = {
       },
       fontFamily: {
         mono: ["var(--space_mono)"],
+        serrat: ["var(--montserrat)"],
       },
     },
   },

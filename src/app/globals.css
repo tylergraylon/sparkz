@@ -8,6 +8,12 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+@layer base {
+  button {
+    @apply cursor-pointer;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -25,3 +31,13 @@
     )
     rgb(var(--background-start-rgb));
 } */
+
+.grid-background {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(to right, #80808012 2px, transparent 2px),
+    linear-gradient(to bottom, #80808012 2px, transparent 2px);
+  background-size: 50px 50px;
+}
