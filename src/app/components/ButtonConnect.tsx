@@ -45,7 +45,7 @@ export default function ButtonConnect({ className }: { className: string }) {
               if (!connected) {
                 return (
                   <Button
-                    className={`${className} w-32 flex justify-center items-center`}
+                    className={`${className}`}
                     onClick={openConnectModal}
                     type="button"
                   >
@@ -57,7 +57,7 @@ export default function ButtonConnect({ className }: { className: string }) {
               if (chain.unsupported) {
                 return (
                   <Button
-                    className={`${className} w-32 flex justify-center items-center`}
+                    className={`${className}`}
                     onClick={openChainModal}
                     type="button"
                   >
