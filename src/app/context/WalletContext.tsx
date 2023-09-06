@@ -1,7 +1,6 @@
 "use client";
 import "@rainbow-me/rainbowkit/styles.css";
 import {
-  getDefaultWallets,
   RainbowKitProvider,
   darkTheme,
   connectorsForWallets,
@@ -43,7 +42,9 @@ export default function WalletContext({
         metaMaskWallet({ chains, projectId: project_id }),
         ledgerWallet({ chains, projectId: project_id }),
         coinbaseWallet({ appName: "SparkzStore", chains }),
-        phantomWallet({ chains }),
+        phantomWallet({ chains }).installed
+          ? phantomWallet({ chains })
+          : Phantom({ chains, projectId: project_id }),
         injectedWallet({ chains }),
       ],
     },
