@@ -8,7 +8,7 @@ export default function DiscordJoin() {
           Join Our <span className="text-complimentary_1">Discord</span>
         </h2>
 
-        <p className="font-serrat text-textshade text-opacity-80 text-xs md:text-base">
+        <p className="font-serrat text-textshade text-opacity-80 text-base">
           Participate in the contest for rewards whether you are a creator,
           contributor or a community manager, you will find what you are looking
           for

@@ -7,7 +7,7 @@ export function NewSLetter() {
         SignUp To <span className="text-complimentary_1">Sparkz</span>{" "}
         Newsletter
       </h1>
-      <p className="font-serrat text-xs md:text-sm text-opacity-80">
+      <p className="font-serrat text-sm text-opacity-80">
         Stay updated with our latest offer and development. we promise not to
         spam you.
       </p>

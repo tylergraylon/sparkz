@@ -11,9 +11,12 @@ import { mainnet } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 import { project_id } from "../../../utils/config";
 import {
+  injectedWallet,
   phantomWallet,
-  trustWallet,
+  metaMaskWallet,
   ledgerWallet,
+  walletConnectWallet,
+  coinbaseWallet,
 } from "@rainbow-me/rainbowkit/wallets";
 
 export default function WalletContext({
@@ -32,13 +35,25 @@ export default function WalletContext({
   });
 
   const connectors = connectorsForWallets([
-    ...wallets,
     {
-      groupName: "Others",
+      groupName: "Wallets",
       wallets: [
-        phantomWallet({ chains }),
+        walletConnectWallet({
+          chains,
+          projectId: project_id,
+          options: {
+            projectId: project_id,
+            qrModalOptions: {
+              projectId: project_id,
+              mobileLinks: ["https://phantom.app/ul/v1/connect"],
+            },
+          },
+        }),
+        metaMaskWallet({ chains, projectId: project_id }),
         ledgerWallet({ chains, projectId: project_id }),
-        trustWallet({ chains, projectId: project_id }),
+        coinbaseWallet({ appName: "SparkzStore", chains }),
+        phantomWallet({ chains }),
+        injectedWallet({ chains }),
       ],
     },
   ]);
