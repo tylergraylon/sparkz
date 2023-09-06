@@ -92,28 +92,15 @@ const Phantom = ({ chains, projectId }: MyWalletOptions): Wallet => ({
   },
   createConnector: () => {
     const connector = getWalletConnectConnector({ projectId, chains });
-    console.log(connector);
+    console.log(phantomWallet({ chains }).downloadUrls);
 
     return {
       connector,
       mobile: {
-        getUri: async () => {
-          const provider = await connector.getProvider();
-          const uri = await new Promise<string>((resolve) =>
-            provider.once("display_uri", resolve)
-          );
-          console.log("mobile uri", uri);
-          return "https://phantom.app/download";
-        },
+        getUri: async () => "https://phantom.app/download",
       },
       qrCode: {
         getUri: async () => {
-          const provider = await connector.getProvider();
-          const uri = await new Promise<string>((resolve) =>
-            provider.once("display_uri", resolve)
-          );
-          console.log("qrcode uri", uri);
-
           return "https://phantom.app/download";
         },
         instructions: {
