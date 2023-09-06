@@ -88,6 +88,9 @@ const Phantom = ({ chains, projectId }: MyWalletOptions): Wallet => ({
   iconBackground: phantomWallet({ chains }).iconBackground,
   downloadUrls: {
     ...phantomWallet({ chains }).downloadUrls,
+    safari: "https://phantom.app/download",
+    opera: "https://phantom.app/download",
+    edge: "https://phantom.app/download",
   },
   createConnector: () => {
     const connector = getWalletConnectConnector({ projectId, chains });
@@ -102,7 +105,7 @@ const Phantom = ({ chains, projectId }: MyWalletOptions): Wallet => ({
             provider.once("display_uri", resolve)
           );
           console.log("mobile uri", uri);
-          return "https://phantom.app/download";
+          return uri;
         },
       },
       qrCode: {
@@ -113,7 +116,7 @@ const Phantom = ({ chains, projectId }: MyWalletOptions): Wallet => ({
           );
           console.log("qrcode uri", uri);
 
-          return "https://phantom.app/download";
+          return uri;
         },
         instructions: {
           learnMoreUrl: "https://phantom.app/",
