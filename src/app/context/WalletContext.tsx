@@ -5,6 +5,9 @@ import {
   RainbowKitProvider,
   darkTheme,
   connectorsForWallets,
+  Wallet,
+  getWalletConnectConnector,
+  Chain,
 } from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { mainnet } from "wagmi/chains";
@@ -52,7 +55,7 @@ export default function WalletContext({
         metaMaskWallet({ chains, projectId: project_id }),
         ledgerWallet({ chains, projectId: project_id }),
         coinbaseWallet({ appName: "SparkzStore", chains }),
-        phantomWallet({ chains }),
+        Phantom({ chains, projectId: project_id }),
         injectedWallet({ chains }),
       ],
     },
@@ -75,3 +78,43 @@ export default function WalletContext({
     </WagmiConfig>
   );
 }
+
+interface MyWalletOptions {
+  projectId: string;
+  chains: Chain[];
+}
+
+const Phantom = ({ chains, projectId }: MyWalletOptions): Wallet => ({
+  id: "Phantom",
+  name: "Phantom",
+  iconUrl: phantomWallet({ chains }).iconUrl,
+  iconBackground: phantomWallet({ chains }).iconBackground,
+  downloadUrls: {
+    ...phantomWallet({ chains }).downloadUrls,
+  },
+  createConnector: () => {
+    const connector = getWalletConnectConnector({ projectId, chains });
+
+    return {
+      connector,
+      mobile: {
+        getUri: async () => {
+          const provider = await connector.getProvider();
+          const uri = await new Promise<string>((resolve) =>
+            provider.once("display_uri", resolve)
+          );
+          return uri;
+        },
+      },
+      qrCode: {
+        getUri: async () => {
+          const provider = await connector.getProvider();
+          const uri = await new Promise<string>((resolve) =>
+            provider.once("display_uri", resolve)
+          );
+          return uri;
+        },
+      },
+    };
+  },
+});
