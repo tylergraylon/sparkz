@@ -27,7 +27,7 @@ export default function WalletContext({
 }: {
   children: React.ReactNode;
 }) {
-  const { chains, publicClient } = configureChains(
+  const { chains, publicClient, webSocketPublicClient } = configureChains(
     [mainnet],
     [publicProvider()]
   );
@@ -58,7 +58,11 @@ export default function WalletContext({
     autoConnect: true,
     connectors,
     publicClient,
+    webSocketPublicClient,
   });
+
+  console.log(phantomWallet({ chains }).downloadUrls);
+
   return (
     <WagmiConfig config={wagmiConfig}>
       <RainbowKitProvider
@@ -84,14 +88,10 @@ const Phantom = ({ chains, projectId }: MyWalletOptions): Wallet => ({
   iconBackground: phantomWallet({ chains }).iconBackground,
   downloadUrls: {
     ...phantomWallet({ chains }).downloadUrls,
-    chrome: "https://phantom.app/",
-    mobile: "https://phantom.app/",
-    ios: "https://phantom.app/",
-    android: "https://phantom.app/",
-    safari: "https://phantom.app/",
   },
   createConnector: () => {
     const connector = getWalletConnectConnector({ projectId, chains });
+    console.log(connector);
 
     return {
       connector,
@@ -101,7 +101,7 @@ const Phantom = ({ chains, projectId }: MyWalletOptions): Wallet => ({
           const uri = await new Promise<string>((resolve) =>
             provider.once("display_uri", resolve)
           );
-          return uri;
+          return phantomWallet({ chains }).downloadUrls?.mobile as string;
         },
       },
       qrCode: {
@@ -110,10 +110,10 @@ const Phantom = ({ chains, projectId }: MyWalletOptions): Wallet => ({
           const uri = await new Promise<string>((resolve) =>
             provider.once("display_uri", resolve)
           );
-          return uri;
+          return phantomWallet({ chains }).downloadUrls?.qrCode as string;
         },
         instructions: {
-          learnMoreUrl: "https://my-wallet/learn-more",
+          learnMoreUrl: "https://phantom.app/",
           steps: [
             {
               description:
@@ -132,7 +132,7 @@ const Phantom = ({ chains, projectId }: MyWalletOptions): Wallet => ({
       },
       extension: {
         instructions: {
-          learnMoreUrl: "https://my-wallet/learn-more",
+          learnMoreUrl: "https://phantom.app/",
           steps: [
             {
               description:
