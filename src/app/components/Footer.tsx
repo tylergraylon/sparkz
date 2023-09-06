@@ -11,7 +11,7 @@ export function NewSLetter() {
         Stay updated with our latest offer and development. we promise not to
         spam you.
       </p>
-      <form action="" className="space-y-4 text-sm font-mono">
+      <form action="" className="space-y-4 font-mono">
         <input
           type="email"
           name="email"

@@ -10,7 +10,11 @@ import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { mainnet } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 import { project_id } from "../../../utils/config";
-import { phantomWallet, trustWallet } from "@rainbow-me/rainbowkit/wallets";
+import {
+  phantomWallet,
+  trustWallet,
+  ledgerWallet,
+} from "@rainbow-me/rainbowkit/wallets";
 
 export default function WalletContext({
   children,
@@ -34,6 +38,7 @@ export default function WalletContext({
       wallets: [
         phantomWallet({ chains }),
         trustWallet({ chains, projectId: project_id }),
+        ledgerWallet({ chains, projectId: project_id }),
       ],
     },
   ]);
