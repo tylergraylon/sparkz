@@ -44,13 +44,15 @@ export default function WalletContext({
         ledgerWallet({ chains, projectId: project_id }),
         coinbaseWallet({ appName: "SparkzStore", chains }),
         phantomWallet({ chains }),
-        // injectedWallet({ chains }),
+        injectedWallet({ chains }),
       ],
     },
   ]);
 
+  console.log(connectors);
+
   const wagmiConfig = createConfig({
-    autoConnect: true,
+    autoConnect: false,
     connectors,
     publicClient,
     webSocketPublicClient,
