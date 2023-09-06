@@ -37,8 +37,8 @@ export default function WalletContext({
       groupName: "Others",
       wallets: [
         phantomWallet({ chains }),
-        trustWallet({ chains, projectId: project_id }),
         ledgerWallet({ chains, projectId: project_id }),
+        trustWallet({ chains, projectId: project_id }),
       ],
     },
   ]);
