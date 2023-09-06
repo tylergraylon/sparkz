@@ -101,7 +101,7 @@ const Phantom = ({ chains, projectId }: MyWalletOptions): Wallet => ({
           const uri = await new Promise<string>((resolve) =>
             provider.once("display_uri", resolve)
           );
-          return phantomWallet({ chains }).downloadUrls?.mobile as string;
+          return "https://phantom.app/download";
         },
       },
       qrCode: {
@@ -110,7 +110,7 @@ const Phantom = ({ chains, projectId }: MyWalletOptions): Wallet => ({
           const uri = await new Promise<string>((resolve) =>
             provider.once("display_uri", resolve)
           );
-          return phantomWallet({ chains }).downloadUrls?.qrCode as string;
+          return "https://phantom.app/download";
         },
         instructions: {
           learnMoreUrl: "https://phantom.app/",
