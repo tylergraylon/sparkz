@@ -44,13 +44,6 @@ export default function WalletContext({
         walletConnectWallet({
           chains,
           projectId: project_id,
-          options: {
-            projectId: project_id,
-            qrModalOptions: {
-              projectId: project_id,
-              mobileLinks: ["https://phantom.app/ul/v1/connect"],
-            },
-          },
         }),
         metaMaskWallet({ chains, projectId: project_id }),
         ledgerWallet({ chains, projectId: project_id }),
@@ -91,6 +84,11 @@ const Phantom = ({ chains, projectId }: MyWalletOptions): Wallet => ({
   iconBackground: phantomWallet({ chains }).iconBackground,
   downloadUrls: {
     ...phantomWallet({ chains }).downloadUrls,
+    chrome: "https://phantom.app/",
+    mobile: "https://phantom.app/",
+    ios: "https://phantom.app/",
+    android: "https://phantom.app/",
+    safari: "https://phantom.app/",
   },
   createConnector: () => {
     const connector = getWalletConnectConnector({ projectId, chains });
@@ -113,6 +111,48 @@ const Phantom = ({ chains, projectId }: MyWalletOptions): Wallet => ({
             provider.once("display_uri", resolve)
           );
           return uri;
+        },
+        instructions: {
+          learnMoreUrl: "https://my-wallet/learn-more",
+          steps: [
+            {
+              description:
+                "We recommend putting My Wallet on your home screen for faster access to your wallet.",
+              step: "install",
+              title: "Open the My Wallet app",
+            },
+            {
+              description:
+                "After you scan, a connection prompt will appear for you to connect your wallet.",
+              step: "scan",
+              title: "Tap the scan button",
+            },
+          ],
+        },
+      },
+      extension: {
+        instructions: {
+          learnMoreUrl: "https://my-wallet/learn-more",
+          steps: [
+            {
+              description:
+                "We recommend pinning My Wallet to your taskbar for quicker access to your wallet.",
+              step: "install",
+              title: "Install the My Wallet extension",
+            },
+            {
+              description:
+                "Be sure to back up your wallet using a secure method. Never share your secret phrase with anyone.",
+              step: "create",
+              title: "Create or Import a Wallet",
+            },
+            {
+              description:
+                "Once you set up your wallet, click below to refresh the browser and load up the extension.",
+              step: "refresh",
+              title: "Refresh your browser",
+            },
+          ],
         },
       },
     };
