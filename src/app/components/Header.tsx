@@ -29,12 +29,12 @@ export default function Header() {
   return (
     <>
       <header className="h-20  text-white px-8 flex items-center justify-between border-b border-[#E9EEEF] border-opacity-20">
-        <div className="text-lg space-x-2">
-          <span className="rounded-full px-4 py-1 bg-white"></span>
+        <div className="text-lg lg:text-2xl space-x-2">
+          <span className="rounded-full px-4 lg:px-5 py-1 bg-white"></span>
           <span>SPARKZ</span>
         </div>
 
-        <div className="md:flex items-center space-x-5 text-xs xl:text-sm hidden font-mono">
+        <div className="md:flex items-center space-x-5 text-xs lg:text-base xl:text-sm hidden font-mono">
           <Link href="" className="cursor-pointer">
             Company
           </Link>
@@ -47,7 +47,7 @@ export default function Header() {
 
         <div className="flex justify-between">
           <div>
-            <ButtonConnect className="md:flex text-xs xl:text-sm hidden p-2 bg-white text-black font-mono font-semibold" />
+            <ButtonConnect className="md:flex text-xs lg:text-base xl:text-sm hidden p-2 bg-white text-black font-mono font-semibold" />
 
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +55,7 @@ export default function Header() {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6 md:hidden"
+              className="w-7 h-7 md:hidden"
               onClick={() => setOpen(!open)}
             >
               <path

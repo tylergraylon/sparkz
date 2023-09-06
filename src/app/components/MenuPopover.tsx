@@ -41,7 +41,10 @@ export default function MenuPopover({ name, items }: Props) {
         {items.map((item) => (
           <Menu.Item key={item.name}>
             {({ active }) => (
-              <Link href={item.link} className="py-3 whitespace-nowrap">
+              <Link
+                href={item.link}
+                className="py-3 whitespace-nowrap cursor-pointer"
+              >
                 {item.name}
               </Link>
             )}
@@ -101,13 +104,13 @@ export function MobileMenuPopover({ open, setOpen }: MobilePopoverProps) {
               </svg>
             </div>
 
-            <ButtonConnect className="px-6 font-mono pt-4" />
+            <ButtonConnect className="px-6 font-mono pt-6" />
 
             <div className="divide-y divide-neutral-400 font-mono ">
-              <div className="py-4 px-6">
+              <div className="py-6 px-6">
                 <Link href="#">Company</Link>
               </div>
-              <div className="py-4 px-6">
+              <div className="py-6 px-6">
                 <Link href="#">MarketPlace</Link>
               </div>
               <MobileMenuDisclosure {...CommunityMenu} />
@@ -122,7 +125,7 @@ export function MobileMenuPopover({ open, setOpen }: MobilePopoverProps) {
 
 function MobileMenuDisclosure({ name, items }: Props) {
   return (
-    <div className="py-4 px-6">
+    <div className="py-6 px-6">
       <Disclosure>
         {({ open, close }) => (
           <>
@@ -149,7 +152,7 @@ function MobileMenuDisclosure({ name, items }: Props) {
             </Disclosure.Button>
 
             <Transition>
-              <Disclosure.Panel className="mt-3 space-y-5 px-3">
+              <Disclosure.Panel className="mt-4 space-y-6 px-3">
                 {items.map((item) => (
                   <div key={item.name}>
                     <Link href={item.link} className="whitespace-nowrap">

@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <main className="">
       <section className="h-96 sm:h-80 bg-black text-center">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl pt-36 sm:pt-28 text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-complimentary_1 brightness-110">
+        <h1 className="text-2xl sm:text-3xl md:text-5xl pt-36 sm:pt-28 text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-complimentary_1 brightness-110">
           Web3 Marketplace
         </h1>
       </section>
@@ -28,7 +28,7 @@ export default function Home() {
         <h3 className="text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-b from-textshade to-stone-700">
           WHO WE ARE
         </h3>
-        <p className="text-textshade font-serrat w-11/12 md:w-3/5 mx-auto text-sm xs:text-lg text-opacity-70">
+        <p className="text-textshade font-serrat w-11/12 md:w-3/5 mx-auto text-sm md:text-base xs:text-lg text-opacity-70">
           We bring marketplace directly to the people. Sparkz{" "}
           <span className="text-white">streamlines</span> the web3 marketplace
           for both seasoned <span className="text-white">power users</span> and
@@ -59,8 +59,8 @@ export default function Home() {
           ))}
           <div className="h-72 bg-black hidden md:block"></div>
 
-          <div className="h-72 flex flex-col text-center justify-evenly text-textshade border border-white border-opacity-40">
-            <h2 className="text-xl">Partnerships</h2>
+          <div className="h-72 flex flex-col text-base md:text-2xl text-center justify-evenly text-textshade border border-white border-opacity-40">
+            <h2 className="">Partnerships</h2>
             <p className="text-textshade text-opacity-40 font-mono">
               Coming soon...
             </p>
