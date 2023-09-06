@@ -31,11 +31,6 @@ export default function WalletContext({
     [mainnet],
     [publicProvider()]
   );
-  const { wallets } = getDefaultWallets({
-    appName: "SparkzStore",
-    projectId: project_id,
-    chains,
-  });
 
   const connectors = connectorsForWallets([
     {
@@ -48,8 +43,8 @@ export default function WalletContext({
         metaMaskWallet({ chains, projectId: project_id }),
         ledgerWallet({ chains, projectId: project_id }),
         coinbaseWallet({ appName: "SparkzStore", chains }),
-        Phantom({ chains, projectId: project_id }),
-        injectedWallet({ chains }),
+        phantomWallet({ chains }),
+        // injectedWallet({ chains }),
       ],
     },
   ]);
@@ -104,8 +99,8 @@ const Phantom = ({ chains, projectId }: MyWalletOptions): Wallet => ({
           const uri = await new Promise<string>((resolve) =>
             provider.once("display_uri", resolve)
           );
-
-          return "https://phantom.app/download";
+          console.log("mobile uri", uri);
+          return uri;
         },
       },
       qrCode: {
@@ -114,8 +109,9 @@ const Phantom = ({ chains, projectId }: MyWalletOptions): Wallet => ({
           const uri = await new Promise<string>((resolve) =>
             provider.once("display_uri", resolve)
           );
+          console.log("qrcode uri", uri);
 
-          return "https://phantom.app/download";
+          return uri;
         },
         instructions: {
           learnMoreUrl: "https://phantom.app/",
