@@ -182,9 +182,9 @@ const Loader = () => (
       cy="50"
       fill="none"
       stroke="#585872"
-      stroke-width="10"
+      strokeWidth="10"
       r="35"
-      stroke-dasharray="164.93361431346415 56.97787143782138"
+      strokeDasharray="164.93361431346415 56.97787143782138"
       transform="matrix(1,0,0,1,0,0)"
     ></circle>
   </svg>
