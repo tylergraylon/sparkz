@@ -12,7 +12,7 @@ type Props = {
 
 export default function MenuPopover({ name, items }: Props) {
   return (
-    <Menu as="div" className="relative">
+    <Menu as="div" className="relative z-20">
       <Menu.Button className="flex items-center space-x-2">
         {({ open }) => (
           <>

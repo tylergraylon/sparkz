@@ -4,6 +4,7 @@ import NftCard from "./NftCard";
 import Footer, { NewSLetter } from "./Footer";
 import DiscordJoin from "./JoinDiscord";
 import ButtonConnect from "./ButtonConnect";
+import TokenomicsMeter from "./TokenomicsMeter";
 
 export {
   Header,
@@ -14,4 +15,5 @@ export {
   Footer,
   DiscordJoin,
   ButtonConnect,
+  TokenomicsMeter,
 };

@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { MenuPopover, MobileMenuPopover, ButtonConnect } from ".";
 import Link from "next/link";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 export const CommunityMenu = {
   name: "Community",
@@ -20,7 +19,7 @@ export const ResourcesMenu = {
   items: [
     { name: "Whitepaper", link: "#" },
     { name: "Roadmap", link: "#" },
-    { name: "Tokenomics", link: "#" },
+    { name: "Tokenomics", link: "/tokenomics" },
   ],
 };
 
@@ -28,7 +27,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <header className="h-20  text-white px-8 flex items-center justify-between border-b border-[#E9EEEF] border-opacity-20">
+      <header className="h-20  text-white px-8 flex items-center justify-between border-opacity-20">
         <div className="text-lg lg:text-2xl space-x-2">
           <span className="rounded-full px-4 lg:px-5 py-1 bg-white"></span>
           <span>SPARKZ</span>

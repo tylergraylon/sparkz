@@ -92,7 +92,6 @@ const Phantom = ({ chains, projectId }: MyWalletOptions): Wallet => ({
   },
   createConnector: () => {
     const connector = getWalletConnectConnector({ projectId, chains });
-    console.log(phantomWallet({ chains }).downloadUrls);
 
     return {
       connector,
