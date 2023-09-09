@@ -53,13 +53,11 @@ export default function WalletContext({
   console.log(connectors);
 
   const wagmiConfig = createConfig({
-    autoConnect: false,
+    autoConnect: true,
     connectors,
     publicClient,
     webSocketPublicClient,
   });
-
-  console.log(phantomWallet({ chains }).downloadUrls);
 
   return (
     <WagmiConfig config={wagmiConfig}>

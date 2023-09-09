@@ -8,6 +8,7 @@ import { ButtonConnect } from ".";
 type Props = {
   name: string;
   items: { name: Props["name"]; link: string }[];
+  onClose?: Dispatch<SetStateAction<boolean>>;
 };
 
 export default function MenuPopover({ name, items }: Props) {
@@ -108,13 +109,17 @@ export function MobileMenuPopover({ open, setOpen }: MobilePopoverProps) {
 
             <div className="divide-y divide-neutral-400 font-mono ">
               <div className="py-6 px-6">
-                <Link href="#">Company</Link>
+                <Link href="#" onClick={() => setOpen(false)}>
+                  Company
+                </Link>
               </div>
               <div className="py-6 px-6">
-                <Link href="#">MarketPlace</Link>
+                <Link href="#" onClick={() => setOpen(false)}>
+                  MarketPlace
+                </Link>
               </div>
-              <MobileMenuDisclosure {...CommunityMenu} />
-              <MobileMenuDisclosure {...ResourcesMenu} />
+              <MobileMenuDisclosure onClose={setOpen} {...CommunityMenu} />
+              <MobileMenuDisclosure onClose={setOpen} {...ResourcesMenu} />
             </div>
           </nav>
         </Transition.Child>
@@ -123,7 +128,7 @@ export function MobileMenuPopover({ open, setOpen }: MobilePopoverProps) {
   );
 }
 
-function MobileMenuDisclosure({ name, items }: Props) {
+function MobileMenuDisclosure({ name, items, onClose: setOpen }: Props) {
   return (
     <div className="py-6 px-6">
       <Disclosure>
@@ -154,7 +159,10 @@ function MobileMenuDisclosure({ name, items }: Props) {
             <Transition>
               <Disclosure.Panel className="mt-4 space-y-6 px-3">
                 {items.map((item) => (
-                  <div key={item.name}>
+                  <div
+                    key={item.name}
+                    onClick={() => setOpen && setOpen(false)}
+                  >
                     <Link href={item.link} className="whitespace-nowrap">
                       {item.name}
                     </Link>
