@@ -8,13 +8,16 @@ import { ButtonConnect } from ".";
 type Props = {
   name: string;
   items: { name: Props["name"]; link: string }[];
+  col?: boolean;
   onClose?: Dispatch<SetStateAction<boolean>>;
 };
 
-export default function MenuPopover({ name, items }: Props) {
+export default function MenuPopover({ name, items, col }: Props) {
   return (
-    <Menu as="div" className="relative z-20">
-      <Menu.Button className="flex items-center space-x-2">
+    <Menu as="div" className="relative">
+      <Menu.Button
+        className={`flex items-center ${col && "justify-around"} space-x-2`}
+      >
         {({ open }) => (
           <>
             <span className={`${open && "text-button_color"}`}>{name}</span>
@@ -25,7 +28,9 @@ export default function MenuPopover({ name, items }: Props) {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke={`${open ? "#D7F28B" : "currentColor"}`}
-              className={`w-3 h-3 transition duration-200 ease-in-out ${
+              className={`w-3 h-3 ${
+                col && "justify-self-end"
+              } transition duration-200 ease-in-out ${
                 open && "transform rotate-180"
               }`}
             >
@@ -38,7 +43,11 @@ export default function MenuPopover({ name, items }: Props) {
           </>
         )}
       </Menu.Button>
-      <Menu.Items className="absolute flex space-x-4 items-center mt-3 px-7 py-3 -left-4 bg-backgroundcolor_sec">
+      <Menu.Items
+        className={`absolute ${
+          col ? "flex-col space-y-4 mt-6" : "space-x-4"
+        } flex items-center mt-3 px-7 py-3 -left-4 bg-backgroundcolor_sec`}
+      >
         {items.map((item) => (
           <Menu.Item key={item.name}>
             {({ active }) => (

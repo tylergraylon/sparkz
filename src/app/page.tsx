@@ -1,5 +1,4 @@
 import {
-  NftCard,
   NewSLetter,
   DiscordJoin,
   ExploreMore,

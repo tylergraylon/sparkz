@@ -34,7 +34,7 @@ export default function Header() {
         </Link>
 
         <div className="lg:flex items-center space-x-7 text-sm hidden font-mono">
-          <Link href="" className="cursor-pointer">
+          <Link href="/marketplace" className="cursor-pointer">
             Marketplace
           </Link>
           <Link href="" className="cursor-pointer">

@@ -1,56 +1,89 @@
+import Image, { StaticImageData } from "next/image";
+import { Suspense } from "react";
+
 type Props = {
-  link: string;
   name: string;
-  desc: string;
-  public_price: number | string;
-  holder_price: number | string;
+  img: string | StaticImageData;
+  floor_price: number | string;
+  weekly_volume: number | string;
 };
 
 export default function NftCard({
   name,
-  desc,
-  holder_price,
-  public_price,
-}: Partial<Props>) {
+  img,
+  weekly_volume,
+  floor_price,
+}: Props) {
+  const transition = "transition-all duration-[700ms] ease-in-out";
+  const visibility = "opacity-0 group-hover:opacity-100";
   return (
-    <div className="group ">
-      <div className="h-56 bg-black flex justify-center items-center">
-        <button
-          className="font-mono font-semibold opacity-0 group-hover:opacity-100 p-3 bg-white 
-                     transition-all duration-[620ms] ease-in-out"
-        >
-          Place order
-        </button>
-      </div>
+    <Suspense fallback={loader()}>
+      <div className="group grid grid-rows-7 relative">
+        <div
+          className={`${visibility} backdrop-brightness-50
+         absolute w-full h-full ${transition}`}
+        ></div>
+        <div className="row-span-6 relative">
+          <div
+            className={`${visibility} backdrop-brightness-50
+         absolute w-full h-full ${transition}`}
+          ></div>
+          <button
+            className={`text-white absolute font-mono font-semibold ${visibility}  p-2 bg-black 
+                     ${transition} inset-0 m-auto w-[75%] h-[3.2rem] z-10`}
+          >
+            Wait for market launch
+          </button>
 
-      <div
-        className="flex px-3 py-3 justify-between transition-all 
-                         duration-[620ms] ease-in-out font-mono 
-                         text-white bg-[#4E4E4E] group-hover:bg-button_color 
-                        bg-opacity-30 group-hover:text-black text-xs lg:text:sm"
-      >
-        <div className="space-y-2">
-          <h3>Sparkz {name ? name : "Name"}</h3>
-          <p className="text-textshade text-opacity-80 group-hover:text-black">
-            {desc ? desc : "Product description +"}
-          </p>
+          <Image alt="Image" src={img} className="object-cover w-full h-60" />
         </div>
 
-        <div className="flex divide-x divide-neutral-400 ">
-          <div className="pr-3 space-y-2">
-            <h3>{holder_price ? holder_price : "0.00"}</h3>
-            <p className="text-textshade text-opacity-80 group-hover:text-black">
-              Holders
-            </p>
+        <div
+          className={`flex px-3 py-3 justify-between ${transition}
+                         text-white bg-[#4E4E4E]
+                           text-xs lg:text:sm`}
+        >
+          <div className="space-y-3">
+            <h3>{name ?? "N/A"}</h3>
+            <div className="space-y-1 font-mono ">
+              <h3 className="">Floor Price</h3>
+              <p className="">{floor_price ?? "N/A"} ETH</p>
+            </div>
           </div>
-          <div className="pl-3 space-y-2">
-            <h3>{public_price ? public_price : "0.00"}</h3>
-            <p className="text-textshade text-opacity-80 group-hover:text-black">
-              Public Price
-            </p>
+
+          <div className="self-end font-mono">
+            <div className="pr-1 space-y-1">
+              <h3 className="">Weekly Volume</h3>
+              <p className="">{weekly_volume ?? "N/A"} ETH</p>
+            </div>
           </div>
+        </div>
+      </div>
+    </Suspense>
+  );
+}
+
+const loader = () => (
+  <div className="group grid grid-rows-7 animate-pulse">
+    <div className="row-span-6 relative bg-[#5c5c5c] h-60"></div>
+
+    <div
+      className={`flex px-3 py-3 space-x-2 justify-between  bg-[#4E4E4E] animate-pulse`}
+    >
+      <div className="space-y-4 basis-3/5">
+        <div className="h-2 bg-textshade rounded-md"></div>
+        <div className="space-y-2">
+          <div className="h-2 bg-textshade rounded-md"></div>
+          <div className="h-2 bg-textshade rounded-md"></div>
+        </div>
+      </div>
+
+      <div className="basis-2/5 self-end">
+        <div className="space-y-2">
+          <div className="h-2 bg-textshade rounded-md"></div>
+          <div className="h-2 bg-textshade rounded-md"></div>
         </div>
       </div>
     </div>
-  );
-}
+  </div>
+);

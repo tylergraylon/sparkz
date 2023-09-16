@@ -7,6 +7,7 @@ import ButtonConnect from "./ButtonConnect";
 import TokenomicsMeter from "./TokenomicsMeter";
 import ExploreMoreCarousel from "./ExploreMoreCarousel";
 import PageHeader from "./PageHeader";
+import MarketPlaceBar from "./MarketPlaceBar";
 
 export {
   Header,
@@ -22,4 +23,5 @@ export {
   TokenomicsMeter,
   ExploreMoreCarousel,
   PageHeader,
+  MarketPlaceBar,
 };
