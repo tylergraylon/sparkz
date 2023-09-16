@@ -1,0 +1,31 @@
+"use client";
+import Image, { StaticImageData } from "next/image";
+import painting_hand from "../../../../public/painting_hand.png";
+import { motion } from "framer-motion";
+
+export default function FeaturedDropsCard({
+  img,
+  name,
+}: {
+  img: StaticImageData | string;
+  name: string;
+}) {
+  return (
+    <motion.div
+      whileTap={{ cursor: "grabbing" }}
+      className="flex w-80 md:w-[26rem] lg:w-[35rem]"
+    >
+      <div className=" bg-[#4E4E4E] relative w-[9%] lg:w-[5%] text-white">
+        <p className="absolute bottom-5 transform -rotate-90 inset-x-0">
+          {name}
+        </p>
+      </div>
+
+      <Image
+        src={img}
+        alt="NFT"
+        className="h-80 object-cover w-[91%] lg:w-[95%] "
+      />
+    </motion.div>
+  );
+}

@@ -1,15 +1,25 @@
-import { NftCard, NewSLetter, DiscordJoin } from "./components";
+import {
+  NftCard,
+  NewSLetter,
+  DiscordJoin,
+  ExploreMore,
+  ExploreMoreCarousel,
+} from "./components";
+import painting_hand from "../../public/painting_hand.png";
+import jelly from "../../public/jelly.png";
 
-const Nfts = [
+export const Nfts = [
   {
     name: '"Birdy"',
     holder_price: 0.0,
     public_price: 0.0,
+    img: jelly,
   },
   {
     name: '"Black Mantle"',
     holder_price: 0.0,
     public_price: 0.0,
+    img: painting_hand,
   },
 ];
 
@@ -48,14 +58,28 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Market place section */}
+      {/* Featured Drops section */}
+
+      <section className="">
+        <h1 className="text-white text-base mb-5 ml-5 sm:ml-8 ">
+          Featured Drops
+        </h1>
+        <ExploreMoreCarousel />
+        <div className="flex justify-center">
+          <button className="p-3 border font-mono font-bold border-white text-white mx-auto my-16">
+            View All Drops
+          </button>
+        </div>
+      </section>
+
+      {/* Explore More section */}
 
       <section className="mt-14 mx-5 sm:mx-8">
-        <h1 className="text-white text-base">Marketplace</h1>
+        <h1 className="text-white text-base">Explore More</h1>
 
         <div className="grid grid-cols-1 gap-y-5 md:grid-cols-2 md:gap-y-20 gap-x-5 mt-5">
           {Nfts.map((nft, index) => (
-            <NftCard {...nft} key={index} />
+            <ExploreMore img={nft.img} name={nft.name} key={index} />
           ))}
           <div className="h-72 bg-black hidden md:block mt-20 md:mt-0"></div>
 
