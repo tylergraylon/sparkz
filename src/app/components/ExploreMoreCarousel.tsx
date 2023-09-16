@@ -24,7 +24,7 @@ export default function ExploreMoreCarousel() {
         transition={{
           type: "tween",
           ease: "easeInOut",
-          duration: Math.round(width / 15),
+          duration: Math.round(width / 18),
           repeat: Infinity,
           repeatDelay: 3,
           delay: 2,
