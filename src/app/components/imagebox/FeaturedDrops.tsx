@@ -15,7 +15,7 @@ export default function FeaturedDropsCard({
       whileTap={{ cursor: "grabbing" }}
       className="flex w-80 md:w-[26rem] lg:w-[35rem] "
     >
-      <div className=" bg-[#4E4E4E] relative w-[9%] lg:w-[5%] text-white">
+      <div className=" bg-[#4E4E4E] relative px-4 text-white">
         <p className="absolute bottom-5 transform -rotate-90 inset-x-0">
           {name}
         </p>
@@ -25,7 +25,7 @@ export default function FeaturedDropsCard({
         <Image
           src={img}
           alt="NFT"
-          className="h-80 object-cover w-[91%] lg:w-[95%] transform hover:scale-105 transition-transform duration-300 ease-in-out"
+          className="h-80 object-cover transform hover:scale-105 transition-transform duration-300 ease-in-out"
         />
       </motion.div>
     </motion.div>

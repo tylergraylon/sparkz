@@ -118,7 +118,7 @@ export function MobileMenuPopover({ open, setOpen }: MobilePopoverProps) {
 
             <div className="divide-y divide-neutral-400 font-mono ">
               <div className="py-6 px-6">
-                <Link href="#" onClick={() => setOpen(false)}>
+                <Link href="/marketplace" onClick={() => setOpen(false)}>
                   MarketPlace
                 </Link>
               </div>

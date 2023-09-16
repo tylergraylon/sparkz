@@ -3,6 +3,34 @@ import { motion } from "framer-motion";
 import { FeaturedDropsCard } from ".";
 import { useRef, useState, useEffect } from "react";
 import ghost from "../../../public/ghost.png";
+import jelly from "../../../public/jelly.png";
+
+const carouimg = [
+  {
+    img: jelly,
+    name: "Sparkz#1500",
+  },
+  {
+    img: jelly,
+    name: "Sparkz#1500",
+  },
+  {
+    img: jelly,
+    name: "Sparkz#1500",
+  },
+  {
+    img: jelly,
+    name: "Sparkz#1500",
+  },
+  {
+    img: jelly,
+    name: "Sparkz#1500",
+  },
+  {
+    img: jelly,
+    name: "Sparkz#1500",
+  },
+];
 
 export default function ExploreMoreCarousel() {
   const constraintsRef = useRef<HTMLDivElement>(null);
@@ -13,7 +41,7 @@ export default function ExploreMoreCarousel() {
       setWidth(
         constraintsRef.current.scrollWidth - constraintsRef.current.offsetWidth
       );
-  }, []);
+  }, [constraintsRef.current?.scrollWidth]);
 
   console.log(width);
 
@@ -31,14 +59,14 @@ export default function ExploreMoreCarousel() {
         }}
         style={{ touchAction: "none" }}
         animate={{ x: [null, -width, 0] }}
-        className="grid grid-flow-col auto-cols-max gap-2 ml-5 sm:ml-8"
+        className="grid grid-flow-col auto-cols-max gap-x-3 ml-5 sm:ml-8"
         drag="x"
         dragConstraints={{ right: 0, left: -width - 10 }}
         whileDrag={{ cursor: "grabbing" }}
         onMouseDown={(e) => e.preventDefault()}
       >
-        {Array.from({ length: 8 }, (_, i) => {
-          return <FeaturedDropsCard img={ghost} name="Jelly" key={i} />;
+        {carouimg.map((item, i) => {
+          return <FeaturedDropsCard {...item} key={i} />;
         })}
       </motion.div>
     </motion.div>
