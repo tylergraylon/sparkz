@@ -8,7 +8,7 @@ import {
 import painting_hand from "../../public/painting_hand.png";
 import jelly from "../../public/jelly.png";
 
-export const Nfts = [
+const Nfts = [
   {
     name: '"Birdy"',
     holder_price: 0.0,

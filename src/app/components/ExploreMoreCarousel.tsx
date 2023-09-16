@@ -1,7 +1,6 @@
 "use client";
 import { motion, CustomDomComponent } from "framer-motion";
 import { FeaturedDropsCard } from ".";
-import { Nfts } from "../page";
 import { useRef, useState, useEffect } from "react";
 import jelly from "../../../public/jelly.png";
 
