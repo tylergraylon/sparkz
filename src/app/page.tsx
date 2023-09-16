@@ -60,8 +60,8 @@ export default function Home() {
 
       {/* Featured Drops section */}
 
-      <section className="">
-        <h1 className="text-white text-base mb-5 ml-5 sm:ml-8 ">
+      <section className="mt-14 ">
+        <h1 className="text-white text-base ml-5 sm:ml-8 mb-5">
           Featured Drops
         </h1>
         <ExploreMoreCarousel />

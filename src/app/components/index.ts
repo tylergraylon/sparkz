@@ -6,6 +6,7 @@ import DiscordJoin from "./JoinDiscord";
 import ButtonConnect from "./ButtonConnect";
 import TokenomicsMeter from "./TokenomicsMeter";
 import ExploreMoreCarousel from "./ExploreMoreCarousel";
+import PageHeader from "./PageHeader";
 
 export {
   Header,
@@ -20,4 +21,5 @@ export {
   ButtonConnect,
   TokenomicsMeter,
   ExploreMoreCarousel,
+  PageHeader,
 };

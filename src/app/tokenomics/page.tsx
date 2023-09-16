@@ -1,4 +1,9 @@
-import { TokenomicsMeter, NewSLetter, DiscordJoin } from "../components";
+import {
+  TokenomicsMeter,
+  NewSLetter,
+  DiscordJoin,
+  PageHeader,
+} from "../components";
 
 const tokenomics = [
   {
@@ -48,10 +53,7 @@ const tokenomics = [
 export default function Tokenomics() {
   return (
     <main>
-      <section className="relative -mt-2 text-white text-2xl sm:text-3xl md:text-5xl sm:mx-8 h-[20rem] flex justify-center items-center">
-        <div className="grid-background -z-10"></div>
-        <h1 className="">Tokenomics</h1>
-      </section>
+      <PageHeader header="Tokenomics" />
 
       <section className="mx-4 py-10 sm:mx-12 mt-12 border border-textshade">
         {tokenomics.map((token, index) => (

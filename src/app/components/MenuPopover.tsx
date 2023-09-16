@@ -69,7 +69,7 @@ export function MobileMenuPopover({ open, setOpen }: MobilePopoverProps) {
       <Dialog
         as="div"
         onClose={() => setOpen(false)}
-        className="fixed top-0 right-0 md:hidden z-10 w-full"
+        className="fixed top-0 right-0 lg:hidden z-10 w-full"
       >
         <Transition.Child
           enter="transition ease-in-out duration-300 transform"
@@ -81,7 +81,7 @@ export function MobileMenuPopover({ open, setOpen }: MobilePopoverProps) {
           as="div"
           className=""
         >
-          <nav className="md:hidden text-white bg-backgroundcolor_sec space-y-4 text-sm pb-10">
+          <nav className="lg:hidden text-white bg-backgroundcolor_sec space-y-4 text-sm pb-10">
             <div className="flex items-center justify-between px-5 pt-4">
               <div className="text-lg space-x-2">
                 <span className="rounded-full px-4 py-1 bg-white"></span>
@@ -110,14 +110,20 @@ export function MobileMenuPopover({ open, setOpen }: MobilePopoverProps) {
             <div className="divide-y divide-neutral-400 font-mono ">
               <div className="py-6 px-6">
                 <Link href="#" onClick={() => setOpen(false)}>
-                  Company
+                  MarketPlace
                 </Link>
               </div>
               <div className="py-6 px-6">
                 <Link href="#" onClick={() => setOpen(false)}>
-                  MarketPlace
+                  Raffle To Win
                 </Link>
               </div>
+              <div className="py-6 px-6">
+                <Link href="/about" onClick={() => setOpen(false)}>
+                  Company
+                </Link>
+              </div>
+
               <MobileMenuDisclosure onClose={setOpen} {...CommunityMenu} />
               <MobileMenuDisclosure onClose={setOpen} {...ResourcesMenu} />
             </div>

@@ -1,5 +1,5 @@
 "use client";
-import { motion, CustomDomComponent } from "framer-motion";
+import { motion, useAnimate } from "framer-motion";
 import { FeaturedDropsCard } from ".";
 import { useRef, useState, useEffect } from "react";
 import jelly from "../../../public/jelly.png";
@@ -18,9 +18,19 @@ export default function ExploreMoreCarousel() {
   console.log(width);
 
   return (
-    <motion.div className="mt-14 overflow-hidden" ref={constraintsRef}>
+    <motion.div className="overflow-hidden" ref={constraintsRef}>
       <motion.div
         ref={constraintsRef}
+        transition={{
+          type: "tween",
+          ease: "easeInOut",
+          duration: Math.round(width / 15),
+          repeat: Infinity,
+          repeatDelay: 3,
+          delay: 2,
+        }}
+        style={{ touchAction: "none" }}
+        animate={{ x: [null, -width, 0] }}
         className="grid grid-flow-col auto-cols-max gap-3 ml-5 sm:ml-8"
         drag="x"
         dragConstraints={{ right: 0, left: -width }}
