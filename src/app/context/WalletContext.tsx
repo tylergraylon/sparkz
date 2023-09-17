@@ -50,8 +50,6 @@ export default function WalletContext({
     },
   ]);
 
-  console.log(connectors);
-
   const wagmiConfig = createConfig({
     autoConnect: true,
     connectors,

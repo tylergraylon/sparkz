@@ -16,7 +16,7 @@ export default function MenuPopover({ name, items, col }: Props) {
   return (
     <Menu as="div" className="relative">
       <Menu.Button
-        className={`flex items-center ${col && "justify-around"} space-x-2`}
+        className={`flex items-center ${col && "space-x-6"} space-x-2`}
       >
         {({ open }) => (
           <>
@@ -45,8 +45,8 @@ export default function MenuPopover({ name, items, col }: Props) {
       </Menu.Button>
       <Menu.Items
         className={`absolute ${
-          col ? "flex-col space-y-4 mt-6" : "space-x-4"
-        } flex items-center mt-3 px-7 py-3 -left-4 bg-backgroundcolor_sec`}
+          col ? "flex-col space-y-4 mt-6 px-12" : "space-x-4 px-7"
+        } flex items-center mt-3  py-3 z-20 -left-4 bg-backgroundcolor_sec`}
       >
         {items.map((item) => (
           <Menu.Item key={item.name}>

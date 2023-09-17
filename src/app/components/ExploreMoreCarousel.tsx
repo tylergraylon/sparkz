@@ -4,10 +4,20 @@ import { FeaturedDropsCard } from ".";
 import { useRef, useState, useEffect } from "react";
 import ghost from "../../../public/ghost.png";
 import jelly from "../../../public/jelly.png";
+import cigar from "../../../public/cigar.png";
+import paint from "../../../public/painting_hand.png";
 
 const carouimg = [
   {
-    img: jelly,
+    img: ghost,
+    name: "Sparkz#1500",
+  },
+  {
+    img: cigar,
+    name: "Sparkz#1500",
+  },
+  {
+    img: ghost,
     name: "Sparkz#1500",
   },
   {
@@ -15,19 +25,11 @@ const carouimg = [
     name: "Sparkz#1500",
   },
   {
-    img: jelly,
+    img: cigar,
     name: "Sparkz#1500",
   },
   {
-    img: jelly,
-    name: "Sparkz#1500",
-  },
-  {
-    img: jelly,
-    name: "Sparkz#1500",
-  },
-  {
-    img: jelly,
+    img: paint,
     name: "Sparkz#1500",
   },
 ];
@@ -43,8 +45,6 @@ export default function ExploreMoreCarousel() {
       );
   }, [constraintsRef.current?.scrollWidth]);
 
-  console.log(width);
-
   return (
     <motion.div className="overflow-hidden" ref={constraintsRef}>
       <motion.div
@@ -59,7 +59,7 @@ export default function ExploreMoreCarousel() {
         }}
         style={{ touchAction: "none" }}
         animate={{ x: [null, -width, 0] }}
-        className="grid grid-flow-col auto-cols-max gap-x-3 ml-5 sm:ml-8"
+        className="grid grid-flow-col auto-cols-max gap-x-6 ml-5 sm:ml-8"
         drag="x"
         dragConstraints={{ right: 0, left: -width - 10 }}
         whileDrag={{ cursor: "grabbing" }}

@@ -24,11 +24,11 @@ export default function MarketPlaceBar() {
         />
 
         <div className="flex gap-x-3 gap-y-3 sm:gap-y-0 text-xs sm:text-base">
-          <div className="border border-white bg-transparent rounded-none py-3 px-1 md:px-3 basis-[35%] text-white">
+          <div className="border border-white bg-transparent rounded-none py-3 px-1 md:px-3 basis-[33%] text-white">
             <MenuPopover name="Filter" items={filters} col />
           </div>
 
-          <button className="py-3 px-1 md:px-3 bg-button_color flex justify-around basis-[30%]">
+          <button className="py-3 px-1 md:px-3 bg-button_color flex justify-around basis-[28%]">
             <span>Swap</span>
 
             <svg
@@ -37,7 +37,7 @@ export default function MarketPlaceBar() {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="w-6 h-6 hidden sm:block"
             >
               <path
                 strokeLinecap="round"
@@ -51,7 +51,7 @@ export default function MarketPlaceBar() {
             Buy / Sell
           </button>
 
-          <Link href="#" className="flex items-center justify-end basis-[5%]">
+          <Link href="#" className="flex items-center justify-end basis-[9%]">
             <Image src={shopping} alt="cart" />
           </Link>
         </div>
