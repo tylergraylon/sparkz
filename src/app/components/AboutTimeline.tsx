@@ -93,7 +93,7 @@ export default function AboutTimeline() {
         scrollable={false}
       >
         {roadmap.map((road, index) => (
-          <RoadmapCard road={road} index={index} />
+          <RoadmapCard road={road} index={index} key={index} />
         ))}
       </Chrono>
     </div>
