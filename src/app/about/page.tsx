@@ -1,10 +1,12 @@
-import { PageHeader } from "../components";
+import { PageHeader, AboutTimeline } from "../components";
 
 export default function About() {
   return (
     <main>
       <PageHeader header="About Us" />
-      <section className="h-44"></section>
+      <section className="">
+        <AboutTimeline />
+      </section>
     </main>
   );
 }

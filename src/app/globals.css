@@ -41,3 +41,11 @@
     linear-gradient(to bottom, #80808012 2px, transparent 2px);
   background-size: 70px 70px;
 }
+
+.left-card {
+  transform: translateX(-100%);
+}
+
+.right-card {
+  transform: translateX(100%);
+}

@@ -3,6 +3,7 @@ import {
   DiscordJoin,
   ExploreMore,
   ExploreMoreCarousel,
+  Raffle,
 } from "./components";
 import painting_hand from "../../public/painting_hand.png";
 import jelly from "../../public/jelly.png";
@@ -69,6 +70,10 @@ export default function Home() {
             View All Drops
           </button>
         </div>
+      </section>
+
+      <section className="mt-14 mx-5 sm:mx-8">
+        <Raffle />
       </section>
 
       {/* Explore More section */}

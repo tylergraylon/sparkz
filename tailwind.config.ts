@@ -15,7 +15,7 @@ const config: Config = {
       },
       colors: {
         backgroundcolor_sec: "#131313",
-        backgroundcolor_pri: "#2A2A2B",
+        backgroundcolor_pri: "#08061B",
         button_color: "#D7F28B",
         textshade: "#E9EEEF",
         complimentary_1: "#46FEDC",

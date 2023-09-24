@@ -8,6 +8,8 @@ import TokenomicsMeter from "./TokenomicsMeter";
 import ExploreMoreCarousel from "./ExploreMoreCarousel";
 import PageHeader from "./PageHeader";
 import MarketPlaceBar from "./MarketPlaceBar";
+import Raffle from "./Raffle";
+import AboutTimeline from "./AboutTimeline";
 
 export {
   Header,
@@ -24,4 +26,6 @@ export {
   ExploreMoreCarousel,
   PageHeader,
   MarketPlaceBar,
+  Raffle,
+  AboutTimeline,
 };
