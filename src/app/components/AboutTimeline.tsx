@@ -1,13 +1,7 @@
 "use client";
 
 import { Chrono } from "react-chrono";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring,
-  useMotionValue,
-} from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
 
 const roadmap = [
@@ -79,7 +73,7 @@ const roadmap = [
   {
     ico: "#14",
     title: "ROADMAP 2.2",
-    desc: "MVP of $Sparkz app release",
+    desc: "MVP of $Sparkz app release",
   },
 ];
 
