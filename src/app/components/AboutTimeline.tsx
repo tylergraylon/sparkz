@@ -79,7 +79,7 @@ const roadmap = [
 
 export default function AboutTimeline() {
   return (
-    <div className="w-full  text-white">
+    <div className="w-full text-white">
       <Chrono
         mode="VERTICAL_ALTERNATING"
         hideControls={true}
@@ -89,6 +89,10 @@ export default function AboutTimeline() {
           cardBgColor: "transparent",
         }}
         slideShow
+        classNames={{
+          card: "w-0",
+        }}
+        className="-z-10"
         timelinePointShape="circle"
         scrollable={false}
       >
@@ -134,6 +138,9 @@ const RoadmapCard = ({
   const leftSpring = useSpring(transformLeft, scrollConfig);
   const rightSpring = useSpring(transformRight, scrollConfig);
 
+  console.log(leftSpring);
+  console.log(rightSpring);
+
   return (
     <motion.div
       ref={targetRef}
@@ -142,7 +149,7 @@ const RoadmapCard = ({
         translateX: index % 2 == 0 ? transformLeft : transformRight,
         x: index % 2 == 0 ? leftSpring : rightSpring,
       }}
-      className="p-[0.1rem] bg-gradient-to-r from-[#0CEAFF] to-[#FF00FF] w-full"
+      className="p-[0.1rem] bg-gradient-to-r from-[#0CEAFF] to-[#FF00FF]  w-full"
       key={index}
     >
       <div className="h-full w-full bg-backgroundcolor_pri py-8 px-4 space-y-5">
