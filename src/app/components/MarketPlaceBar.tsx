@@ -1,8 +1,10 @@
+"use client"
+
 import { MenuPopover } from ".";
 import Link from "next/link";
 import Image from "next/image";
 import shopping from "../../../public/shoppingcart.svg";
-import { Suspense } from "react";
+import { useRouter } from "next/navigation";
 const filters = [
   { name: "All", link: "#" },
   { name: "Trending", link: "#" },
@@ -10,6 +12,7 @@ const filters = [
   { name: "All", link: "#" },
 ];
 export default function MarketPlaceBar() {
+  const router = useRouter()
   return (
     <section className="mx-5 sm:mx-8">
       <form
@@ -28,7 +31,10 @@ export default function MarketPlaceBar() {
             <MenuPopover name="Filter" items={filters} col />
           </div>
 
-          <button className="py-3 px-1 md:px-3 bg-button_color flex justify-around basis-[28%]">
+          <button type="button" className="py-3 px-1 md:px-3 bg-button_color flex justify-around basis-[28%]"
+           onClick={() => {
+            router.push("/marketplace/swap")
+          }}>
             <span>Swap</span>
 
             <svg
