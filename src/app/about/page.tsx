@@ -4,7 +4,7 @@ export default function About() {
   return (
     <main>
       <PageHeader header="About Us" />
-      <section className="">
+      <section className="mt-12">
         <AboutTimeline />
       </section>
     </main>
