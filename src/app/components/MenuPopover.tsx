@@ -187,7 +187,9 @@ function MobileMenuDisclosure({ name, items, onClose: setOpen }: Props) {
   );
 }
 
-export const SelectPopover = memo(function ({ items }: Pick<Props, "items">) {
+export const SelectPopover = memo(function SelectPopoverComponent({
+  items,
+}: Pick<Props, "items">) {
   const [currentItem, setCurrentItem] = useState("All");
 
   const selectItem = (item: string) => {
