@@ -28,7 +28,7 @@ export default function MarketPlaceBar() {
             <MenuPopover name="Filter" items={filters} col />
           </div>
 
-          <button className="py-3 px-1 md:px-3 bg-button_color flex justify-around basis-[28%]">
+          <button className="py-3 px-1 md:px-3 bg-[#0202CB] flex justify-around basis-[28%]">
             <span>Swap</span>
 
             <svg
