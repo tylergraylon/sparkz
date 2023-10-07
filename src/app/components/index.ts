@@ -1,6 +1,14 @@
 import Header from "./Header";
-import MenuPopover, { MobileMenuPopover } from "./MenuPopover";
-import { NftCard, FeaturedDropsCard, ExploreMore } from "./imagebox";
+import MenuPopover, { MobileMenuPopover, SelectPopover } from "./MenuPopover";
+import {
+  NftCard,
+  FeaturedDropsCard,
+  ExploreMore,
+  Loader,
+  NftProps,
+  CategoryCard,
+  CategoryProps,
+} from "./imagebox";
 import Footer, { NewSLetter } from "./Footer";
 import DiscordJoin from "./JoinDiscord";
 import ButtonConnect from "./ButtonConnect";
@@ -10,6 +18,7 @@ import PageHeader from "./PageHeader";
 import MarketPlaceBar from "./MarketPlaceBar";
 import Raffle from "./Raffle";
 import AboutTimeline from "./AboutTimeline";
+import MarketPlaceCategories from "./MarketPlaceCategories";
 
 export {
   Header,
@@ -28,4 +37,10 @@ export {
   MarketPlaceBar,
   Raffle,
   AboutTimeline,
+  Loader,
+  CategoryCard,
+  MarketPlaceCategories,
+  SelectPopover,
+  type NftProps,
+  type CategoryProps,
 };

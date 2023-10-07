@@ -1,7 +1,7 @@
 "use client";
 import { Menu, Transition, Disclosure, Dialog } from "@headlessui/react";
 import Link from "next/link";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState, memo } from "react";
 import { CommunityMenu, ResourcesMenu } from "./Header";
 import { ButtonConnect } from ".";
 
@@ -15,9 +15,7 @@ type Props = {
 export default function MenuPopover({ name, items, col }: Props) {
   return (
     <Menu as="div" className="relative">
-      <Menu.Button
-        className={`flex items-center ${col && "space-x-6"} space-x-2`}
-      >
+      <Menu.Button className={`flex items-center space-x-2`}>
         {({ open }) => (
           <>
             <span className={`${open && "text-button_color"}`}>{name}</span>
@@ -28,9 +26,7 @@ export default function MenuPopover({ name, items, col }: Props) {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke={`${open ? "#D7F28B" : "currentColor"}`}
-              className={`w-3 h-3 ${
-                col && "justify-self-end"
-              } transition duration-200 ease-in-out ${
+              className={`w-3 h-3  transition duration-200 ease-in-out ${
                 open && "transform rotate-180"
               }`}
             >
@@ -44,9 +40,8 @@ export default function MenuPopover({ name, items, col }: Props) {
         )}
       </Menu.Button>
       <Menu.Items
-        className={`absolute ${
-          col ? "flex-col space-y-4 mt-6 px-12" : "space-x-4 px-7"
-        } flex items-center mt-3  py-3 z-20 -left-4 bg-backgroundcolor_sec`}
+        className={`absolute space-x-4 px-7
+         flex items-center mt-3  py-3 z-20 -left-4 bg-backgroundcolor_sec`}
       >
         {items.map((item) => (
           <Menu.Item key={item.name}>
@@ -191,3 +186,59 @@ function MobileMenuDisclosure({ name, items, onClose: setOpen }: Props) {
     </div>
   );
 }
+
+export const SelectPopover = memo(function ({ items }: Pick<Props, "items">) {
+  const [currentItem, setCurrentItem] = useState("All");
+
+  const selectItem = (item: string) => {
+    setCurrentItem(item);
+  };
+  return (
+    <Menu as="div" className="relative w-full">
+      <Menu.Button className="w-full">
+        {({ open }) => (
+          <div className={`flex items-center justify-between w-full`}>
+            <span className={`${open && "text-button_color"}`}>
+              {currentItem}
+            </span>
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke={`${open ? "#D7F28B" : "currentColor"}`}
+              className={`w-3 h-3  transition duration-200 ease-in-out ${
+                open && "transform rotate-180"
+              }`}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+              />
+            </svg>
+          </div>
+        )}
+      </Menu.Button>
+      <Menu.Items
+        className={`absolute space-y-3 pl-3
+         flex flex-col mt-6  py-3 z-20 -left-4 bg-backgroundcolor_sec w-full`}
+      >
+        {items.map((item) => (
+          <Menu.Item key={item.name}>
+            {({ active }) => (
+              <Link
+                href={item.link}
+                onClick={() => selectItem(item.name)}
+                className="py-3 whitespace-nowrap cursor-pointer"
+              >
+                {item.name}
+              </Link>
+            )}
+          </Menu.Item>
+        ))}
+      </Menu.Items>
+    </Menu>
+  );
+});

@@ -1,18 +1,32 @@
 "use client";
 
-import { MenuPopover } from ".";
+import { SelectPopover } from ".";
 import Link from "next/link";
 import Image from "next/image";
 import shopping from "../../../public/shoppingcart.svg";
 import { useRouter } from "next/navigation";
-const filters = [
-  { name: "All", link: "#" },
-  { name: "Trending", link: "#" },
-  { name: "Popular", link: "#" },
-  { name: "All", link: "#" },
-];
+import useUtils from "@/utils/utilshook";
+
 export default function MarketPlaceBar() {
   const router = useRouter();
+
+  const { queryLink } = useUtils();
+
+  const filters = [
+    { name: "All", link: queryLink("filter", "all") },
+    { name: "Top", link: queryLink("filter", "top") },
+    { name: "Popular", link: queryLink("filter", "popular") },
+    { name: "Gadgets", link: queryLink("filter", "gadgets") },
+    {
+      name: "Price Low To High",
+      link: queryLink("filter", "price_low_to_high"),
+    },
+    {
+      name: "Price High To Low",
+      link: queryLink("filter", "price_high_to_low"),
+    },
+  ];
+
   return (
     <section className="mx-5 sm:mx-8">
       <form
@@ -28,7 +42,7 @@ export default function MarketPlaceBar() {
 
         <div className="flex gap-x-3 gap-y-3 sm:gap-y-0 text-xs sm:text-base">
           <div className="border border-white bg-transparent rounded-none py-3 px-1 md:px-3 basis-[33%] text-white">
-            <MenuPopover name="Filter" items={filters} col />
+            <SelectPopover items={filters} />
           </div>
 
           <button

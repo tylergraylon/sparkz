@@ -1,7 +1,6 @@
 import Image, { StaticImageData } from "next/image";
-import { Suspense } from "react";
 
-type Props = {
+export type NftProps = {
   name: string;
   img: string | StaticImageData;
   floor_price: number | string;
@@ -13,11 +12,11 @@ export default function NftCard({
   img,
   weekly_volume,
   floor_price,
-}: Props) {
+}: NftProps) {
   const transition = "transition-all duration-[700ms] ease-in-out";
   const visibility = "opacity-0 group-hover:opacity-100";
   return (
-    <Suspense fallback={loader()}>
+    <>
       <div className="group grid grid-rows-7 relative">
         <div
           className={`${visibility} backdrop-brightness-50
@@ -34,8 +33,17 @@ export default function NftCard({
           >
             Wait for market launch
           </button>
-
-          <Image alt="Image" src={img} className="object-cover w-full h-60" />
+          <div className={`w-full h-64`}>
+            <Image
+              alt="Image"
+              src={img}
+              fill
+              style={{
+                objectFit: "cover",
+                // cover, contain, none
+              }}
+            />
+          </div>
         </div>
 
         <div
@@ -44,26 +52,28 @@ export default function NftCard({
                            text-xs lg:text:sm`}
         >
           <div className="space-y-3">
-            <h3>{name ?? "N/A"}</h3>
-            <div className="space-y-1 font-mono ">
+            <h3 className="font-serrat text-ellipsis overflow-hidden">
+              {name ?? "N/A"}
+            </h3>
+            <div className="space-y-1 font-serrat ">
               <h3 className="">Floor Price</h3>
               <p className="">{floor_price ?? "N/A"} ETH</p>
             </div>
           </div>
 
-          <div className="self-end font-mono">
+          <div className="self-end font-serrat">
             <div className="pr-1 space-y-1">
-              <h3 className="">Weekly Volume</h3>
-              <p className="">{weekly_volume ?? "N/A"} ETH</p>
+              <h3 className="">Volume</h3>
+              <p className="whitespace-nowrap">{weekly_volume ?? "N/A"} ETH</p>
             </div>
           </div>
         </div>
       </div>
-    </Suspense>
+    </>
   );
 }
 
-const loader = () => (
+export const Loader = () => (
   <div className="group grid grid-rows-7 animate-pulse">
     <div className="row-span-6 relative bg-[#5c5c5c] h-60"></div>
 
