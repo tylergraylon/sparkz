@@ -19,7 +19,7 @@ export default function Swap() {
   return (
     <main className="" onClick={() => setClick(swap.HIDDEN)}>
       <div
-        className="w-11/12 sm:w-4/6 lg:w-1/2 mx-auto bg-[#161336] px-5 sm:px-10 md:px-20 text-white py-5 mt-12 relative"
+        className="w-11/12 sm:w-4/6 lg:w-1/2 mx-auto bg-[#161336] px-5 sm:px-10 md:px-20 text-white py-5 mt-12 relative overflow-hidden"
         onClick={(e) => {
           e.stopPropagation();
           setClick(swap.SHOW);
@@ -28,7 +28,7 @@ export default function Swap() {
         {click === swap.SHOW && (
           <div
             className={`absolute 
-                    -top-10 -left-10 -right-10 h-[110%] w-[110%] bg-black bg-opacity-60 flex items-center justify-center text-2xl space-x-12`}
+                    -top-10 -left-10 -right-10 h-[110%] w-[110%] bg-black bg-opacity-60 flex items-center overflow-hidden justify-center text-2xl space-x-12`}
           >
             <Image src={coming_soon} alt="coming_soon" />
             <p>Coming Soon...</p>
