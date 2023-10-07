@@ -196,10 +196,10 @@ export const SelectPopover = memo(function SelectPopoverComponent({
     setCurrentItem(item);
   };
   return (
-    <Menu as="div" className="relative w-full">
+    <Menu as="div" className="relative">
       <Menu.Button className="w-full">
         {({ open }) => (
-          <div className={`flex items-center justify-between w-full`}>
+          <div className={`flex items-center justify-between w-full px-2`}>
             <span className={`${open && "text-button_color"}`}>
               {currentItem}
             </span>
@@ -224,8 +224,8 @@ export const SelectPopover = memo(function SelectPopoverComponent({
         )}
       </Menu.Button>
       <Menu.Items
-        className={`absolute space-y-3 pl-3
-         flex flex-col mt-6  py-3 z-20 -left-4 bg-backgroundcolor_sec w-full`}
+        className={`absolute space-y-3 px-3
+         flex flex-col -left-3 mt-6  py-3 z-20 bg-backgroundcolor_sec`}
       >
         {items.map((item) => (
           <Menu.Item key={item.name}>

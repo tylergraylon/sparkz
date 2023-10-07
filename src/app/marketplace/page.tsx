@@ -40,7 +40,7 @@ export default function MarketPlace() {
           : Array.from({ length: 10 }, (_, i) => <Loader key={i} />)}
       </section>
 
-      <h1 className="py-4 text-xl mt-24 text-white mx-5 sm:mx-8 font-serrat">
+      <h1 className="py-4 text-xl mt-16 text-white mx-5 sm:mx-8 font-serrat">
         Explore Categories
       </h1>
       <Categories />

@@ -6,7 +6,7 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   const data = await Promise.all([
-    getCategory(collections[collections.length - 1], "All"),
+    getCategory(collections[collections.length - 3], "All"),
     getCategory(collections[Math.round(collections.length / 2)], "Popular"),
     getCategory(collections[0], "Top"),
   ]);

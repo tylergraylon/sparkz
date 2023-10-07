@@ -28,9 +28,9 @@ export default function Swap() {
         {click === swap.SHOW && (
           <div
             className={`absolute 
-                    -top-10 -left-10 -right-10 h-[110%] w-[110%] bg-black bg-opacity-60 flex items-center overflow-hidden justify-center text-2xl space-x-12`}
+                    -top-10 -left-7 sm:-left-10 h-[110%] w-[110%] bg-black bg-opacity-60 flex items-center overflow-hidden justify-evenly text-2xl `}
           >
-            <Image src={coming_soon} alt="coming_soon" />
+            <Image src={coming_soon} alt="coming_soon" width={40} />
             <p>Coming Soon...</p>
           </div>
         )}
