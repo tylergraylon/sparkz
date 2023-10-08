@@ -10,11 +10,15 @@ async function fetcher<T>(url: string) {
 export function useMarketPlace() {
   const hours_24 = 24 * 60 * 60 * 1000;
 
-  const useData = <T>(url: string, query?: string | null) => {
+  const useData = <T>(
+    url: string,
+    query?: string | null,
+    page?: string | null
+  ) => {
     // /api/seacollections
     const { data, isLoading, error } = useSWR(
-      `${url}?query=${query}`,
-      fetcher<{ data: Array<T> }>,
+      `${url}?query=${query}${page && "&p=" + page}`,
+      fetcher<T>,
       { refreshInterval: hours_24 }
     );
 

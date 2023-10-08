@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Dispatch, SetStateAction, useState, memo } from "react";
 import { CommunityMenu, ResourcesMenu } from "./Header";
 import { ButtonConnect } from ".";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
 
 type Props = {
   name: string;
@@ -218,7 +218,9 @@ function MobileMenuDisclosure({ name, items, onClose: setOpen }: Props) {
 export const SelectPopover = memo(function SelectPopoverComponent({
   items,
 }: Pick<Props, "items">) {
-  const [currentItem, setCurrentItem] = useState("All");
+  const searchparams = useSearchParams();
+  const filter = searchparams.get("filter");
+  const [currentItem, setCurrentItem] = useState(filter ?? "All");
 
   const selectItem = (item: string) => {
     setCurrentItem(item);
@@ -228,7 +230,9 @@ export const SelectPopover = memo(function SelectPopoverComponent({
       <Menu.Button className="w-full">
         {({ open }) => (
           <div className={`flex items-center justify-between w-full px-2`}>
-            <span className={`${open && "text-button_color"}`}>
+            <span
+              className={`${open && "text-button_color "} text-sm xl:text-base`}
+            >
               {currentItem}
             </span>
 

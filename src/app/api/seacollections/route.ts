@@ -6,6 +6,9 @@ import { NextResponse, NextRequest } from "next/server";
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const query = searchParams.get("query");
+  const page = searchParams.get("p") ?? 1;
+
+  const perPage = 9;
 
   let data = [];
 
@@ -25,9 +28,21 @@ export async function GET(request: NextRequest) {
 
   const result = data.filter((item) => item != null);
 
+  const count = result.length;
+
+  const pages = Math.ceil(count / perPage);
+
+  const offset = perPage * (Number(page) - 1);
+
   //   console.log(result);
 
-  return NextResponse.json({ data: result });
+  return NextResponse.json({
+    data: result.slice(offset, perPage * Number(page)),
+    count,
+    pages,
+    numofItems: perPage,
+    currentPage: Number(page) > pages ? 1 : Number(page),
+  });
 }
 
 const getCollectionData = async (param: number) =>

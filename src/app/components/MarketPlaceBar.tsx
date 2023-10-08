@@ -5,12 +5,12 @@ import Link from "next/link";
 import Image from "next/image";
 import shopping from "../../../public/shoppingcart.svg";
 import { useRouter } from "next/navigation";
-import useUtils from "@/utils/utilshook";
+import useQueryLink from "@/utils/utilshook";
 
 export default function MarketPlaceBar() {
   const router = useRouter();
 
-  const { queryLink } = useUtils();
+  const { queryLink } = useQueryLink(true);
 
   const filters = [
     { name: "All", link: queryLink("filter", "all") },
@@ -47,12 +47,12 @@ export default function MarketPlaceBar() {
 
           <button
             type="button"
-            className="py-3 px-1 md:px-3 bg-[#0202CB] flex justify-center sm:justify-between basis-[28%]"
+            className="py-3 px-2 md:px-3 bg-[#0202CB] flex justify-center items-center sm:justify-between basis-[28%]"
             onClick={() => {
               router.push("/marketplace/swap");
             }}
           >
-            <span className="text-white">Swap</span>
+            <span className="text-white text-sm xl:text-base">Swap</span>
 
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +70,7 @@ export default function MarketPlaceBar() {
             </svg>
           </button>
 
-          <button className="py-3 px-1 md:px-3 tracking-tight border border-white text-white basis-[30%]">
+          <button className="py-3 px-1 md:px-3 tracking-tight border border-white text-white basis-[30%] text-sm xl:text-base">
             Buy / Sell
           </button>
 
