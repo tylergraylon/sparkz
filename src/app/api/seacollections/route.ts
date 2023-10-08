@@ -28,13 +28,13 @@ export async function GET(request: NextRequest) {
 
   let result = data.filter((item) => item != null);
 
+  const count = data.length;
+
+  const pages = Math.ceil(count / perPage);
+
   const offset = perPage * (Number(page) - 1);
 
   result = result.slice(offset, perPage * Number(page));
-
-  const count = result.length;
-
-  const pages = Math.ceil(count / perPage);
 
   //   console.log(result);
 
