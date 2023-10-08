@@ -1,0 +1,17 @@
+[
+  {
+    "name": "JBL MG-S22 TWS Wireless",
+    "price": 9.0,
+    "img": "/sampods.png"
+  },
+  {
+    "name": "Apple Iphone 13 Pro",
+    "price": 800.0,
+    "img": "/iphone.png"
+  },
+  {
+    "name": "Ledger Nano S Plus",
+    "price": 209.44,
+    "img": "/drive.png"
+  }
+]

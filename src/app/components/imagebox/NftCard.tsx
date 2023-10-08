@@ -5,6 +5,7 @@ export type NftProps = {
   img: string | StaticImageData;
   floor_price: number | string;
   weekly_volume: number | string;
+  type: string;
 };
 
 export default function NftCard({
@@ -12,6 +13,7 @@ export default function NftCard({
   img,
   weekly_volume,
   floor_price,
+  type,
 }: NftProps) {
   const transition = "transition-all duration-[700ms] ease-in-out";
   const visibility = "opacity-0 group-hover:opacity-100";
@@ -57,16 +59,31 @@ export default function NftCard({
             </h3>
             <div className="space-y-1 font-serrat ">
               <h3 className="">Floor Price</h3>
-              <p className="">{floor_price ?? "N/A"} ETH</p>
+              <p className="">
+                {floor_price ?? "N/A"} {type == "gadget" ? "USD" : "ETH"}
+              </p>
             </div>
           </div>
 
-          <div className="self-end font-serrat">
-            <div className="pr-1 space-y-1">
-              <h3 className="">Volume</h3>
-              <p className="whitespace-nowrap">{weekly_volume ?? "N/A"} ETH</p>
+          {type == "gadget" ? (
+            <button
+              className="p-3 self-end
+             font-serrat border border-white text-white
+              hover:text-black hover:bg-white transition-colors
+               duration-200 ease-in-out"
+            >
+              Add To Cart
+            </button>
+          ) : (
+            <div className="self-end font-serrat">
+              <div className="pr-1 space-y-1">
+                <h3 className="">Volume</h3>
+                <p className="whitespace-nowrap">
+                  {weekly_volume ?? "N/A"} ETH
+                </p>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </>

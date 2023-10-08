@@ -21,7 +21,12 @@ export function useMarketPlace() {
     const { data, isLoading, error } = useSWR(
       page ? `${url}?query=${query}&p=${page}` : `${url}?query=${query}`,
       fetcher<T>,
-      { refreshInterval: hours_24 }
+      {
+        refreshInterval: hours_24,
+        revalidateIfStale: false,
+        revalidateOnFocus: false,
+        revalidateOnReconnect: false,
+      }
     );
 
     return {

@@ -9,6 +9,7 @@ export async function GET() {
     getCategory(collections[collections.length - 3], "All"),
     getCategory(collections[Math.round(collections.length / 2)], "Popular"),
     getCategory(collections[0], "Top"),
+    getGadgetCategory("Gadgets"),
   ]);
 
   const result = data.filter((item) => item != null);
@@ -42,4 +43,14 @@ const getCategory = async (
 
     return;
   }
+};
+
+const getGadgetCategory = async (category: string) => {
+  const gadgets = await import("../seacollections/gadgets.json").then(
+    (res) => res.default
+  );
+  return {
+    category,
+    img: gadgets[0].img,
+  };
 };

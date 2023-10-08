@@ -3,6 +3,24 @@ import { collections, SEA_API_KEY } from "./data";
 import { GET_COLLECTION_ANALYTICS, GET_COLLECTION } from "@/services/endPoints";
 import { NextResponse, NextRequest } from "next/server";
 
+type DataDto =
+  | {
+      name: any;
+      img: any;
+      floor_price: any;
+      weekly_volume: any;
+      type: string;
+    }
+  | undefined;
+
+function shuffle(a: DataDto[]) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const query = searchParams.get("query");
@@ -16,11 +34,21 @@ export async function GET(request: NextRequest) {
 
   switch (query) {
     case "all":
+      const collectionsData = await getCollectionData(collections.length);
+      const gadgetsData = await getGadgetData();
+
+      const blend = collectionsData.concat(gadgetsData);
+      data = shuffle(blend);
+
+      break;
     case "popular":
       data = await getCollectionData(collections.length);
       break;
     case "top":
       data = await getCollectionData(10);
+      break;
+    case "gadgets":
+      data = await getGadgetData();
       break;
     default:
       data = await getCollectionData(collections.length);
@@ -71,6 +99,7 @@ const getCollectionData = async (param: number) =>
             weekly_volume: Math.round(
               data[0].data.total.volume as number
             ).toLocaleString(),
+            type: "nft",
           };
         }
 
@@ -79,6 +108,7 @@ const getCollectionData = async (param: number) =>
           img: "N/A",
           floor_price: "N/A",
           weekly_volume: "N/A",
+          type: "nft",
         };
       } catch (error) {
         // console.log("error", error);
@@ -86,3 +116,14 @@ const getCollectionData = async (param: number) =>
       }
     })
   );
+
+const getGadgetData = async () => {
+  const gadgets = await import("./gadgets.json").then((res) => res.default);
+  return gadgets.map((item) => ({
+    name: item.name,
+    img: item.img,
+    floor_price: item.price,
+    weekly_volume: "N/A",
+    type: "gadget",
+  }));
+};
