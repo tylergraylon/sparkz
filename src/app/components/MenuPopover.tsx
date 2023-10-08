@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Dispatch, SetStateAction, useState, memo } from "react";
 import { CommunityMenu, ResourcesMenu } from "./Header";
 import { ButtonConnect } from ".";
+import { usePathname } from "next/navigation";
 
 type Props = {
   name: string;
@@ -13,6 +14,7 @@ type Props = {
 };
 
 export default function MenuPopover({ name, items, col }: Props) {
+  const pathname = usePathname();
   return (
     <Menu as="div" className="relative">
       <Menu.Button className={`flex items-center space-x-2`}>
@@ -48,7 +50,10 @@ export default function MenuPopover({ name, items, col }: Props) {
             {({ active }) => (
               <Link
                 href={item.link}
-                className="py-3 whitespace-nowrap cursor-pointer"
+                className={`py-3 whitespace-nowrap cursor-pointer ${
+                  pathname.includes("/" + item.name.toLowerCase()) &&
+                  "text-[#00FFFF]"
+                }`}
               >
                 {item.name}
               </Link>
@@ -67,6 +72,10 @@ type MobilePopoverProps = {
 
 export function MobileMenuPopover({ open, setOpen }: MobilePopoverProps) {
   console.log(open);
+
+  const pathname = usePathname();
+
+  console.log(pathname);
 
   return (
     <Transition show={open}>
@@ -113,7 +122,13 @@ export function MobileMenuPopover({ open, setOpen }: MobilePopoverProps) {
 
             <div className="divide-y divide-neutral-400 font-mono ">
               <div className="py-6 px-6">
-                <Link href="/marketplace" onClick={() => setOpen(false)}>
+                <Link
+                  href="/marketplace"
+                  className={`cursor-pointer ${
+                    pathname.includes("/marketplace") && "text-[#00FFFF]"
+                  }`}
+                  onClick={() => setOpen(false)}
+                >
                   MarketPlace
                 </Link>
               </div>
@@ -123,7 +138,13 @@ export function MobileMenuPopover({ open, setOpen }: MobilePopoverProps) {
                 </Link>
               </div>
               <div className="py-6 px-6">
-                <Link href="/about" onClick={() => setOpen(false)}>
+                <Link
+                  href="/about"
+                  className={`cursor-pointer ${
+                    pathname.includes("/about") && "text-[#00FFFF]"
+                  }`}
+                  onClick={() => setOpen(false)}
+                >
                   Company
                 </Link>
               </div>
@@ -139,6 +160,7 @@ export function MobileMenuPopover({ open, setOpen }: MobilePopoverProps) {
 }
 
 function MobileMenuDisclosure({ name, items, onClose: setOpen }: Props) {
+  const pathname = usePathname();
   return (
     <div className="py-6 px-6">
       <Disclosure>
@@ -173,7 +195,13 @@ function MobileMenuDisclosure({ name, items, onClose: setOpen }: Props) {
                     key={item.name}
                     onClick={() => setOpen && setOpen(false)}
                   >
-                    <Link href={item.link} className="whitespace-nowrap">
+                    <Link
+                      href={item.link}
+                      className={`whitespace-nowrap ${
+                        pathname.includes("/" + item.name.toLowerCase()) &&
+                        "text-[#00FFFF]"
+                      }`}
+                    >
                       {item.name}
                     </Link>
                   </div>

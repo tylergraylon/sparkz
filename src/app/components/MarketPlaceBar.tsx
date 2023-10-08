@@ -35,7 +35,7 @@ export default function MarketPlaceBar() {
       >
         <input
           type="text"
-          className="border border-white bg-transparent rounded-none p-3 placeholder:font-mono"
+          className="border border-white text-white bg-transparent rounded-none p-3 placeholder:font-mono"
           name="search"
           placeholder="Search by name"
         />
@@ -47,19 +47,19 @@ export default function MarketPlaceBar() {
 
           <button
             type="button"
-            className="py-3 px-1 md:px-3 bg-[#0202CB] flex justify-around basis-[28%]"
+            className="py-3 px-1 md:px-3 bg-[#0202CB] flex justify-center sm:justify-between basis-[28%]"
             onClick={() => {
               router.push("/marketplace/swap");
             }}
           >
-            <span>Swap</span>
+            <span className="text-white">Swap</span>
 
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
-              stroke="currentColor"
+              stroke="#fff"
               className="w-6 h-6 hidden sm:block"
             >
               <path

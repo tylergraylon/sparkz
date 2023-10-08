@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { MenuPopover, MobileMenuPopover, ButtonConnect } from ".";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export const CommunityMenu = {
   name: "Community",
@@ -25,6 +26,7 @@ export const ResourcesMenu = {
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
   return (
     <>
       <header className="h-20  text-white px-8 flex items-center justify-between border-opacity-20">
@@ -34,13 +36,23 @@ export default function Header() {
         </Link>
 
         <div className="lg:flex items-center space-x-7 text-sm hidden font-mono">
-          <Link href="/marketplace" className="cursor-pointer">
+          <Link
+            href="/marketplace"
+            className={`cursor-pointer ${
+              pathname.includes("/marketplace") && "text-[#00FFFF]"
+            }`}
+          >
             Marketplace
           </Link>
           <Link href="" className="cursor-pointer">
             Raffle To Win
           </Link>
-          <Link href="/about" className="cursor-pointer">
+          <Link
+            href="/about"
+            className={`cursor-pointer ${
+              pathname.includes("/about") && "text-[#00FFFF]"
+            }`}
+          >
             Company
           </Link>
 
