@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
   const query = searchParams.get("query");
   const page = searchParams.get("p") ?? 1;
 
-  const perPage = 9;
+  const perPage = 10;
 
   let data = [];
 
