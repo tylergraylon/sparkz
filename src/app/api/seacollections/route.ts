@@ -32,13 +32,17 @@ export async function GET(request: NextRequest) {
 
   console.log(query);
 
+  const allData = async () => {
+    const collectionsData = await getCollectionData(collections.length);
+    const gadgetsData = await getGadgetData();
+
+    const blend = collectionsData.concat(gadgetsData);
+    return shuffle(blend);
+  };
+
   switch (query) {
     case "all":
-      const collectionsData = await getCollectionData(collections.length);
-      const gadgetsData = await getGadgetData();
-
-      const blend = collectionsData.concat(gadgetsData);
-      data = shuffle(blend);
+      data = await allData();
 
       break;
     case "popular":
@@ -51,7 +55,7 @@ export async function GET(request: NextRequest) {
       data = await getGadgetData();
       break;
     default:
-      data = await getCollectionData(collections.length);
+      data = await allData();
   }
 
   const result = data.filter((item) => item != null);
