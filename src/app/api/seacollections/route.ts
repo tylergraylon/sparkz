@@ -26,20 +26,16 @@ export async function GET(request: NextRequest) {
       data = await getCollectionData(collections.length);
   }
 
-  let result = data.filter((item) => item != null);
+  const result = data.filter((item) => item != null);
 
-  const count = data.length;
+  const count = result.length;
 
   const pages = Math.ceil(count / perPage);
 
   const offset = perPage * (Number(page) - 1);
 
-  result = result.slice(offset, perPage * Number(page));
-
-  //   console.log(result);
-
   return NextResponse.json({
-    data: result,
+    data: result.slice(offset, perPage * Number(page)),
     count,
     pages,
     numofItems: perPage,

@@ -16,8 +16,10 @@ export function useMarketPlace() {
     page?: string | null
   ) => {
     // /api/seacollections
+    console.log(`${url}?query=${query}&p=${page && page}`);
+
     const { data, isLoading, error } = useSWR(
-      `${url}?query=${query}${page && "&p=" + page}`,
+      page ? `${url}?query=${query}&p=${page}` : `${url}?query=${query}`,
       fetcher<T>,
       { refreshInterval: hours_24 }
     );
