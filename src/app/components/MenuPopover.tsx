@@ -5,6 +5,8 @@ import { Dispatch, SetStateAction, useState, memo } from "react";
 import { CommunityMenu, ResourcesMenu } from "./Header";
 import { ButtonConnect } from ".";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import logo from "../../../public/spark-logo.png";
+import Image from "next/image";
 
 type Props = {
   name: string;
@@ -96,10 +98,12 @@ export function MobileMenuPopover({ open, setOpen }: MobilePopoverProps) {
         >
           <nav className="lg:hidden text-white bg-backgroundcolor_sec space-y-4 text-sm pb-10">
             <div className="flex items-center justify-between px-5 pt-4">
-              <div className="text-lg space-x-2">
-                <span className="rounded-full px-4 py-1 bg-white"></span>
-                <span>SPARKZ</span>
-              </div>
+              <Link href="/" className="text-lg space-x-2 flex">
+                <Image src={logo} alt="SPARKZ" />
+                <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-white to-complimentary_1 brightness-110">
+                  SPARKZ
+                </h1>
+              </Link>
 
               <svg
                 xmlns="http://www.w3.org/2000/svg"

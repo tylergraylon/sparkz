@@ -4,6 +4,8 @@ import { useState } from "react";
 import { MenuPopover, MobileMenuPopover, ButtonConnect } from ".";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
+import logo from "../../../public/spark-logo.png";
 
 export const CommunityMenu = {
   name: "Community",
@@ -30,9 +32,11 @@ export default function Header() {
   return (
     <>
       <header className="h-20  text-white px-8 flex items-center justify-between border-opacity-20">
-        <Link href="/" className="text-lg lg:text-2xl space-x-2">
-          <span className="rounded-full px-4 lg:px-5 py-1 bg-white"></span>
-          <span>SPARKZ</span>
+        <Link href="/" className="text-lg lg:text-2xl space-x-2 flex">
+          <Image src={logo} alt="SPARKZ" />
+          <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-white to-complimentary_1 brightness-110">
+            SPARKZ
+          </h1>
         </Link>
 
         <div className="lg:flex items-center space-x-7 text-sm hidden font-mono">

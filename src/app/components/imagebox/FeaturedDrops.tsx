@@ -15,11 +15,11 @@ export default function FeaturedDropsCard({
       whileTap={{ cursor: "grabbing" }}
       className="flex w-80 md:w-[26rem] lg:w-[31rem] "
     >
-      <div className=" bg-[#4E4E4E] relative px-4 text-white">
+      {/* <div className=" bg-[#4E4E4E] relative px-4 text-white">
         <p className="absolute bottom-5 transform -rotate-90 inset-x-0">
           {name}
         </p>
-      </div>
+      </div> */}
 
       <motion.div className="overflow-hidden">
         <Image

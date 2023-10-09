@@ -7,6 +7,14 @@ import {
 } from "./components";
 import painting_hand from "../../public/painting_hand.png";
 import jelly from "../../public/jelly.png";
+import mac_bg from "../../public/mac-bg.png";
+import flower_bg from "../../public/flower-bg.png";
+import iphone_bg from "../../public/iphone-bg.png";
+import skull_bg from "../../public/skull-bg.png";
+import sparks_ring from "../../public/sparkz-ring.png";
+import Image from "next/image";
+
+const pics = [skull_bg, iphone_bg, mac_bg, flower_bg];
 
 const Nfts = [
   {
@@ -26,10 +34,23 @@ const Nfts = [
 export default function Home() {
   return (
     <main className="">
-      <section className="h-[35rem] bg-black text-center">
-        <h1 className="text-2xl sm:text-3xl md:text-5xl pt-60 text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-complimentary_1 brightness-110">
-          Web3 Marketplace
+      <section className="h-[34rem] px-10 bg-[url('/fluid_background.png')] grid grid-cols-1 md:grid-cols-2 pt-14 gap-2 ">
+        <h1
+          className="text-2xl sm:text-4xl 
+        text-center md:text-start lg:text-5xl
+         text-white uppercase order-2 md:order-none"
+        >
+          Discover <br /> and <br /> collect <br /> the best <br />
+          <span className="text-[#00FFFF]">products here</span>
         </h1>
+
+        <div className="order-1 md:order-none relative">
+          <Image
+            src={skull_bg}
+            alt="background"
+            className="mx-auto w-64 md:w-[30rem] lg:w-[34rem]"
+          />
+        </div>
       </section>
 
       <section className="relative mt-12 text-center sm:mx-8 h-[20rem] flex flex-col justify-evenly">
@@ -61,8 +82,9 @@ export default function Home() {
       {/* Featured Drops section */}
 
       <section className="mt-14 ">
-        <h1 className="text-white text-base ml-5 sm:ml-8 mb-5">
-          Featured Drops
+        <h1 className="text-white text-xl md:text-3xl ml-5 sm:ml-8 mb-5">
+          AMAZING AND SUPER <br />
+          <span className="text-[#00FFFF]">UNIQUE PRODUCTS</span>
         </h1>
         <ExploreMoreCarousel />
         <div className="flex justify-center">
@@ -78,21 +100,22 @@ export default function Home() {
 
       {/* Explore More section */}
 
-      <section className="mt-14 mx-5 sm:mx-8">
-        <h1 className="text-white text-base">Explore More</h1>
+      <section className="my-16 mx-5 sm:mx-8">
+        {/* <h1 className="text-white text-base">Explore More</h1> */}
 
-        <div className="grid grid-cols-1 gap-y-5 md:grid-cols-2 md:gap-y-20 gap-x-5 mt-5">
-          {Nfts.map((nft, index) => (
+        {/* <div className="grid grid-cols-1 gap-y-5 md:grid-cols-2 md:gap-y-20 gap-x-5 mt-5"> */}
+        {/* {Nfts.map((nft, index) => (
             <ExploreMore img={nft.img} name={nft.name} key={index} />
           ))}
-          <div className="h-72 bg-black hidden md:block mt-20 md:mt-0"></div>
+          <div className="h-72 bg-black hidden md:block mt-20 md:mt-0"></div> */}
 
-          <div className="h-72 flex flex-col text-base md:text-2xl mt-20 md:mt-0 text-center justify-evenly text-textshade border border-white border-opacity-40">
-            <h2 className="">Partnerships</h2>
-            <p className="text-textshade text-opacity-40 font-mono">
-              Coming soon...
-            </p>
-          </div>
+        {/* </div> */}
+
+        <div className="h-72 flex flex-col text-base md:text-2xl mt-20 md:mt-0 text-center justify-evenly text-textshade border border-white border-opacity-40">
+          <h2 className="">Partnerships</h2>
+          <p className="text-textshade text-opacity-40 font-mono">
+            Coming soon...
+          </p>
         </div>
       </section>
 

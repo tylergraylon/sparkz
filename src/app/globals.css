@@ -49,3 +49,14 @@
 .right-card {
   transform: translateX(100%);
 }
+
+.header-text-bg {
+  color: transparent;
+  -webkit-text-stroke: 0.56px #fff;
+  font-size: 11vw;
+  z-index: -10;
+  position: absolute;
+  /* left: 50%;
+  right: 50%; */
+  /* margin: 0 auto; */
+}
