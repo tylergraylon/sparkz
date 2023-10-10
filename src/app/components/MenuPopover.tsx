@@ -15,7 +15,7 @@ type Props = {
   onClose?: Dispatch<SetStateAction<boolean>>;
 };
 
-export default function MenuPopover({ name, items, col }: Props) {
+export default function MenuPopover({ name, items }: Props) {
   const pathname = usePathname();
   return (
     <Menu as="div" className="relative">

@@ -10,6 +10,7 @@ import cigar from "../../../public/cigar.png";
 import { useMarketPlace } from "@/services/fetcher";
 import { useSearchParams } from "next/navigation";
 import Pagination from "./pagination";
+import { Suspense } from "react";
 
 const nft = {
   name: "NAME #1590",
@@ -44,6 +45,9 @@ export default function MarketPlace() {
     <main>
       <MarketPlaceBar />
 
+
+      <Suspense>
+      
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-12 mx-5 sm:mx-8 gap-7">
         {isLoading
           ? Array.from({ length: 20 }, (_, i) => <Loader key={i} />)
@@ -51,7 +55,7 @@ export default function MarketPlace() {
           ? nfts.data.data.map((nft, i) => <NftCard {...nft} key={i} />)
           : Array.from({ length: 10 }, (_, i) => <Loader key={i} />)}
       </section>
-
+      </Suspense>
       {isLoading ? null : nfts && nfts.data.pages > 1 ? (
         <section className="mt-8 mx-5 sm:mx-8 flex justify-center text-white">
           <Pagination
