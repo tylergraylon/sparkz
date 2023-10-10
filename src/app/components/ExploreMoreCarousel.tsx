@@ -40,8 +40,10 @@ export default function ExploreMoreCarousel(
     data: {img: string | StaticImageData}[] | null}) {
   const constraintsRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(0);
+  const [hydrate, setHydration] = useState<boolean>(false)
 
   useEffect(() => {
+    setHydration(true)
     if (constraintsRef.current)
       setWidth(
         (constraintsRef.current.scrollWidth - constraintsRef.current.offsetWidth) + 10
@@ -71,7 +73,7 @@ export default function ExploreMoreCarousel(
         whileDrag={{ cursor: "grabbing" }}
         onMouseDown={(e) => e.preventDefault()}
       >
-        { data && data.length > 0 ? (
+        { hydrate && data && data.length > 0 ? (
           data.map((item, i) => {
             return <FeaturedDropsCard img={item.img} key={i} />;
           })
@@ -89,7 +91,7 @@ export default function ExploreMoreCarousel(
 
 
 const CarouselLoader = () => (
-  <div className="group grid animate-pulse">
-    <div className="row-span-6 relative bg-[#5c5c5c] h-60"></div>
+  <div className="flex w-80 h-80 bg-[#5c5c5c] animate-pulse">
+    <div className="row-span-6 relative  h-60"></div>
   </div>
 );
