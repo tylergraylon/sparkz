@@ -18,20 +18,21 @@ import axios from "axios"
 
 const pics = [skull_bg, iphone_bg, mac_bg, flower_bg];
 
-const Nfts = [
-  {
-    name: '"Birdy"',
-    holder_price: 0.0,
-    public_price: 0.0,
-    img: jelly,
-  },
-  {
-    name: '"Black Mantle"',
-    holder_price: 0.0,
-    public_price: 0.0,
-    img: painting_hand,
-  },
-];
+
+// const Nfts = [
+//   {
+//     name: '"Birdy"',
+//     holder_price: 0.0,
+//     public_price: 0.0,
+//     img: jelly,
+//   },
+//   {
+//     name: '"Black Mantle"',
+//     holder_price: 0.0,
+//     public_price: 0.0,
+//     img: painting_hand,
+//   },
+// ];
 
 const getData = async () => {
   try {
@@ -48,7 +49,12 @@ const getData = async () => {
 
 export default async function Home() {
 
+  let data = null
   const result = await getData()
+
+  if (result?.data && result.data.data.length > 0 ) {
+    data = result.data.data
+  }
 
   console.log('carousel');
   
@@ -109,8 +115,8 @@ export default async function Home() {
         </h1>
         <div className="space-y-8">
 
-        <ExploreMoreCarousel data={result?.data.data.slice(0,6)} />
-        <ExploreMoreCarousel data={result?.data.data.slice(4, 10)} opp />
+        <ExploreMoreCarousel data={data.slice(0,6)} />
+        <ExploreMoreCarousel data={data.slice(4, 10)} opp />
         </div>
        
         <div className="flex justify-center">
