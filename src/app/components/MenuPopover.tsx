@@ -122,9 +122,9 @@ export function MobileMenuPopover({ open, setOpen }: MobilePopoverProps) {
               </svg>
             </div>
 
-            <ButtonConnect className="px-6 font-mono pt-6" />
+            <ButtonConnect className="px-6 font-serrat pt-6" />
 
-            <div className="divide-y divide-neutral-400 font-mono ">
+            <div className="divide-y divide-neutral-400 font-serrat ">
               <div className="py-6 px-6">
                 <Link
                   href="/marketplace"

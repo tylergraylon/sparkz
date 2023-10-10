@@ -31,11 +31,11 @@ export default function MarketPlaceBar() {
     <section className="mx-5 sm:mx-8">
       <form
         action=""
-        className="grid grid-cols-1 lg:grid-cols-2 gap-3 font-mono"
+        className="grid grid-cols-1 lg:grid-cols-2 gap-3 font-serrat"
       >
         <input
           type="text"
-          className="border border-white text-white bg-transparent rounded-none p-3 placeholder:font-mono"
+          className="border border-white text-white bg-transparent rounded-none p-3 placeholder:font-serrat"
           name="search"
           placeholder="Search by name"
         />

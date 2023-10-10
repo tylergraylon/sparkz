@@ -76,7 +76,7 @@ export default function Swap() {
 
         <button
           type="button"
-          className="bg-white w-full mt-11 mb-5 font-mono font-semibold p-4 text-black"
+          className="bg-white w-full mt-11 mb-5 font-serrat font-semibold p-4 text-black"
         >
           Continue
         </button>
@@ -95,8 +95,8 @@ function SwapTile({
   return (
     <div className="flex justify-between px-5 sm:px-8 py-6 bg-[#35315C]">
       <span className="space-y-2">
-        <p className="font-mono text-opacity-70 text-textshade">~$0.00</p>
-        <p className="font-mono text-3xl">0</p>
+        <p className="font-serrat text-opacity-70 text-textshade">~$0.00</p>
+        <p className="font-serrat text-3xl">0</p>
       </span>
 
       <span className="bg-black rounded-e-full rounded-s-full px-4 flex items-center space-x-2">

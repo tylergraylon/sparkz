@@ -14,7 +14,7 @@ export default function DiscordJoin() {
           for
         </p>
 
-        <button className="font-mono p-3 border border-white w-full md:w-auto">
+        <button className="font-serrat p-3 border border-white w-full md:w-auto">
           Join Our Community
         </button>
       </div>

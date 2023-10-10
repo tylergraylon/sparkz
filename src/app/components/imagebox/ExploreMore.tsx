@@ -12,7 +12,7 @@ export default function ExploreMore({
     <div className="group grid grid-rows-7">
       <div className="row-span-6 relative">
         <button
-          className={`absolute font-mono font-semibold ${visibility}  p-2 bg-white 
+          className={`absolute font-serrat font-semibold ${visibility}  p-2 bg-white 
                      ${transition} inset-0 m-auto w-32 h-[3.2rem] z-10`}
         >
           Place order

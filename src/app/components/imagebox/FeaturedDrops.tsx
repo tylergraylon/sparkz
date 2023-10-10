@@ -8,12 +8,12 @@ export default function FeaturedDropsCard({
   name,
 }: {
   img: StaticImageData | string;
-  name: string;
+  name?: string;
 }) {
   return (
     <motion.div
       whileTap={{ cursor: "grabbing" }}
-      className="flex w-80 md:w-[26rem] lg:w-[31rem] "
+      className="flex w-80 h-80"
     >
       {/* <div className=" bg-[#4E4E4E] relative px-4 text-white">
         <p className="absolute bottom-5 transform -rotate-90 inset-x-0">
@@ -22,10 +22,12 @@ export default function FeaturedDropsCard({
       </div> */}
 
       <motion.div className="overflow-hidden">
-        <Image
+      <Image
           src={img}
           alt="NFT"
-          className="h-80 object-cover transform hover:scale-105 transition-transform duration-300 ease-in-out"
+          width={350}
+          height={200}
+          className="transform hover:scale-105 transition-transform duration-300 ease-in-out"
         />
       </motion.div>
     </motion.div>

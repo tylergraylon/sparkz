@@ -1,4 +1,4 @@
-import { PageHeader, AboutTimeline } from "../components";
+import { PageHeader, AboutTimeline, DiscordJoin, Faq, NewSLetter } from "../components";
 
 export default function About() {
   return (
@@ -7,6 +7,10 @@ export default function About() {
       <section className="mt-12">
         <AboutTimeline />
       </section>
+      <DiscordJoin />
+
+      <Faq/>
+      <NewSLetter />
     </main>
   );
 }

@@ -22,7 +22,7 @@ const config: Config = {
         complimentary_2: "#F3D4FE",
       },
       fontFamily: {
-        mono: ["var(--space_mono)"],
+        // mono: ["var(--space_mono)"],
         serrat: ["var(--montserrat)"],
       },
       gridTemplateColumns: {

@@ -22,7 +22,7 @@ export default function TokenomicsMeter({
           {percent}
         </span>
 
-        <span className="text-textshade text-opacity-80 font-mono col-span-6 md:col-span-7 ml-3 md:ml-6 lg:ml-3">
+        <span className="text-textshade text-opacity-80 font-serrat col-span-6 md:col-span-7 ml-3 md:ml-6 lg:ml-3">
           {text}
         </span>
       </div>

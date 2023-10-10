@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Space_Mono, Montserrat } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import { Header, Footer } from "./components";
 import { WalletContext } from "./context";
 
@@ -10,12 +10,12 @@ const myFont = localFont({
   display: "swap",
 });
 
-const space_mono = Space_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  display: "swap",
-  variable: "--space_mono",
-});
+// const space_mono = Space_Mono({
+//   subsets: ["latin"],
+//   weight: ["400", "700"],
+//   display: "swap",
+//   variable: "--space_mono",
+// });
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -36,7 +36,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${myFont.className} ${space_mono.variable} ${montserrat.variable}`}
+      className={`${myFont.className} ${montserrat.variable}`}
     >
       <body className="bg-backgroundcolor_pri tracking-normal">
         <WalletContext>

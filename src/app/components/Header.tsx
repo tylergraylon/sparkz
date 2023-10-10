@@ -39,7 +39,7 @@ export default function Header() {
           </h1>
         </Link>
 
-        <div className="lg:flex items-center space-x-7 text-sm hidden font-mono">
+        <div className="lg:flex items-center space-x-7 text-sm hidden font-serrat">
           <Link
             href="/marketplace"
             className={`cursor-pointer ${
@@ -66,7 +66,7 @@ export default function Header() {
 
         <div className="flex justify-between">
           <div>
-            <ButtonConnect className="lg:flex text-sm hidden p-2 bg-white text-black font-mono font-semibold" />
+            <ButtonConnect className="lg:flex text-sm hidden p-2 bg-white text-black font-serrat font-semibold" />
 
             <svg
               xmlns="http://www.w3.org/2000/svg"

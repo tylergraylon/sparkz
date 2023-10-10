@@ -30,7 +30,7 @@ export default function NftCard({
          absolute w-full h-full ${transition}`}
           ></div>
           <button
-            className={`text-white absolute font-mono font-semibold ${visibility} bg-black 
+            className={`text-white absolute font-serrat font-semibold ${visibility} bg-black 
                      ${transition} inset-0 m-auto w-[75%] h-[3.2rem] z-10`}
           >
             Wait for market launch

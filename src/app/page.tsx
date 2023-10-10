@@ -4,6 +4,7 @@ import {
   ExploreMore,
   ExploreMoreCarousel,
   Raffle,
+  Faq
 } from "./components";
 import painting_hand from "../../public/painting_hand.png";
 import jelly from "../../public/jelly.png";
@@ -13,6 +14,7 @@ import iphone_bg from "../../public/iphone-bg.png";
 import skull_bg from "../../public/skull-bg.png";
 import sparks_ring from "../../public/sparkz-ring.png";
 import Image from "next/image";
+import axios from "axios"
 
 const pics = [skull_bg, iphone_bg, mac_bg, flower_bg];
 
@@ -31,7 +33,27 @@ const Nfts = [
   },
 ];
 
-export default function Home() {
+const getData = async () => {
+  try {
+    const res = await axios.get("http://localhost:3000/api/seacollections?query=carousel")
+
+    if (res.status === 200) {
+      return res
+    }
+  } catch (error) {
+    console.log('', error);
+    
+    return null
+  }
+}
+
+export default async function Home() {
+
+  const result = await getData()
+
+  console.log('carousel data');
+  
+
   return (
     <main className="">
       <section className="h-[34rem] px-10 bg-[url('/fluid_background.png')] grid grid-cols-1 md:grid-cols-2 pt-14 gap-2 ">
@@ -68,7 +90,7 @@ export default function Home() {
           <span className="text-white"> accessibility for everyone.</span>
         </p>
 
-        <div className="flex space-x-4 md:space-x-10 justify-center font-mono font-bold">
+        <div className="flex space-x-4 md:space-x-10 justify-center font-serrat font-bold">
           <button className="p-3 bg-gradient-to-r from-button_color to-complimentary_1">
             Learn More
           </button>
@@ -86,9 +108,14 @@ export default function Home() {
           AMAZING AND SUPER <br />
           <span className="text-[#00FFFF]">UNIQUE PRODUCTS</span>
         </h1>
-        <ExploreMoreCarousel />
+        <div className="space-y-8">
+
+        <ExploreMoreCarousel data={result?.data.data.slice(0,6)} />
+        <ExploreMoreCarousel data={result?.data.data.slice(4, 10)} opp />
+        </div>
+       
         <div className="flex justify-center">
-          <button className="p-3 border font-mono font-bold border-white text-white mx-auto my-16">
+          <button className="p-3 border font-serrat font-bold border-white text-white mx-auto my-16">
             View All Drops
           </button>
         </div>
@@ -113,13 +140,17 @@ export default function Home() {
 
         <div className="h-72 flex flex-col text-base md:text-2xl mt-20 md:mt-0 text-center justify-evenly text-textshade border border-white border-opacity-40">
           <h2 className="">Partnerships</h2>
-          <p className="text-textshade text-opacity-40 font-mono">
+          <p className="text-textshade text-opacity-40 font-serrat">
             Coming soon...
           </p>
         </div>
       </section>
 
+      
+
       <DiscordJoin />
+
+      <Faq/>
       <NewSLetter />
     </main>
   );

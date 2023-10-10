@@ -19,6 +19,7 @@ import MarketPlaceBar from "./MarketPlaceBar";
 import Raffle from "./Raffle";
 import AboutTimeline from "./AboutTimeline";
 import MarketPlaceCategories from "./MarketPlaceCategories";
+import Faq from "./Faq";
 
 export {
   Header,
@@ -39,6 +40,7 @@ export {
   AboutTimeline,
   Loader,
   CategoryCard,
+  Faq,
   MarketPlaceCategories,
   SelectPopover,
   type NftProps,
