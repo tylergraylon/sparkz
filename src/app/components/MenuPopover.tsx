@@ -73,11 +73,11 @@ type MobilePopoverProps = {
 };
 
 export function MobileMenuPopover({ open, setOpen }: MobilePopoverProps) {
-  console.log(open);
+ 
 
   const pathname = usePathname();
 
-  console.log(pathname);
+ 
 
   return (
     <Transition show={open}>

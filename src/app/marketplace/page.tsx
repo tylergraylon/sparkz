@@ -38,7 +38,7 @@ export default function MarketPlace() {
     error,
   } = getData<DataDto>("/api/seacollections", filter, page);
 
-  console.log(nfts?.data);
+  // console.log(nfts?.data);
 
   return (
     <main>

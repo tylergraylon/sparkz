@@ -41,7 +41,6 @@ const getData = async () => {
       return res
     }
   } catch (error) {
-    console.log('', error);
     
     return null
   }
@@ -51,7 +50,7 @@ export default async function Home() {
 
   const result = await getData()
 
-  console.log('carousel data');
+  console.log('carousel');
   
 
   return (

@@ -13,14 +13,14 @@ export default function Pagination({
   const router = useRouter();
   const { queryLink } = useQueryLink();
 
-  console.log(currentPage);
-  console.log("pages oooo", pages);
+  // console.log(currentPage);
+  // console.log("pages oooo", pages);
 
   const handlePageChange = ({ selected }: { selected: number }) => {
     const page = selected + 1;
     const link = queryLink("p", page.toString());
     router.push(link);
-    console.log(link);
+   
   };
   return (
     <ReactPaginate

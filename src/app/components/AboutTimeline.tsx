@@ -138,8 +138,7 @@ const RoadmapCard = ({
   const leftSpring = useSpring(transformLeft, scrollConfig);
   const rightSpring = useSpring(transformRight, scrollConfig);
 
-  console.log(leftSpring);
-  console.log(rightSpring);
+
 
   return (
     <motion.div

@@ -14,7 +14,7 @@ enum swap {
 export default function Swap() {
   const [click, setClick] = useState<swap>(swap.HIDDEN);
 
-  console.log(click);
+  // console.log(click);
 
   return (
     <main className="" onClick={() => setClick(swap.HIDDEN)}>

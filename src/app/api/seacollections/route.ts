@@ -30,7 +30,7 @@ export async function GET(request: NextRequest) {
 
   let data = [];
 
-  console.log(query);
+
 
   const allData = async (num: number) => {
     const collectionsData = await getCollectionData(num);

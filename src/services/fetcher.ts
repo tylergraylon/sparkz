@@ -16,7 +16,7 @@ export function useMarketPlace() {
     page?: string | null
   ) => {
     // /api/seacollections
-    console.log(`${url}?query=${query}&p=${page && page}`);
+   
 
     const { data, isLoading, error } = useSWR(
       page ? `${url}?query=${query}&p=${page}` : `${url}?query=${query}`,
