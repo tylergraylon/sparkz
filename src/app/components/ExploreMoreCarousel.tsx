@@ -35,24 +35,32 @@ const carouimg = [
   },
 ];
 
-export default function ExploreMoreCarousel(
-  {opp, data}: {opp?: boolean, 
-    data: {img: string | StaticImageData}[] | null}) {
+export default function ExploreMoreCarousel({
+  opp,
+  data,
+}: {
+  opp?: boolean;
+  data: { img: string | StaticImageData }[] | null;
+}) {
   const constraintsRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(0);
-  const [hydrate, setHydration] = useState<boolean>(false)
+  const [hydrate, setHydration] = useState<boolean>(false);
 
   useEffect(() => {
-    setHydration(true)
+    setHydration(true);
     if (constraintsRef.current)
       setWidth(
-        (constraintsRef.current.scrollWidth - constraintsRef.current.offsetWidth) + 10
+        constraintsRef.current.scrollWidth -
+          constraintsRef.current.offsetWidth +
+          10
       );
   }, [constraintsRef.current?.scrollWidth]);
 
   return (
-    <motion.div className="overflow-hidden" ref={constraintsRef}
-    // style={{ width: `${width * 6}px`}}
+    <motion.div
+      className="overflow-hidden"
+      ref={constraintsRef}
+      // style={{ width: `${width * 6}px`}}
     >
       <motion.div
         ref={constraintsRef}
@@ -63,9 +71,9 @@ export default function ExploreMoreCarousel(
           repeat: Infinity,
           repeatDelay: 3,
           delay: 0,
-          repeatType: 'loop'
+          repeatType: "loop",
         }}
-        style={{ touchAction: "none",}}
+        style={{ touchAction: "none" }}
         animate={opp ? { x: [-width, 0, -width] } : { x: [null, -width, 0] }}
         className={`grid grid-flow-col auto-cols-max gap-x-6 ml-5 sm:ml-8 justify-items-start`}
         drag="x"
@@ -73,22 +81,15 @@ export default function ExploreMoreCarousel(
         whileDrag={{ cursor: "grabbing" }}
         onMouseDown={(e) => e.preventDefault()}
       >
-        { hydrate && data && data.length > 0 ? (
-          data.map((item, i) => {
-            return <FeaturedDropsCard img={item.img} key={i} />;
-          })
-        ): (
-            Array.from({length: 6}, (_, i) => (
-              <CarouselLoader/>
-            ))
-        )
-        }
+        {hydrate && data && data.length > 0
+          ? data.map((item, i) => {
+              return <FeaturedDropsCard img={item.img} key={i} />;
+            })
+          : Array.from({ length: 6 }, (_, i) => <CarouselLoader key={i} />)}
       </motion.div>
     </motion.div>
   );
 }
-
-
 
 const CarouselLoader = () => (
   <div className="flex w-80 h-80 bg-[#5c5c5c] animate-pulse">
