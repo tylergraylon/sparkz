@@ -4,7 +4,7 @@ import {
   ExploreMore,
   ExploreMoreCarousel,
   Raffle,
-  Faq
+  Faq,
 } from "./components";
 import painting_hand from "../../public/painting_hand.png";
 import jelly from "../../public/jelly.png";
@@ -14,10 +14,9 @@ import iphone_bg from "../../public/iphone-bg.png";
 import skull_bg from "../../public/skull-bg.png";
 import sparks_ring from "../../public/sparkz-ring.png";
 import Image from "next/image";
-import axios from "axios"
+import axios from "axios";
 
 const pics = [skull_bg, iphone_bg, mac_bg, flower_bg];
-
 
 // const Nfts = [
 //   {
@@ -36,28 +35,27 @@ const pics = [skull_bg, iphone_bg, mac_bg, flower_bg];
 
 const getData = async () => {
   try {
-    const res = await axios.get("http://localhost:3000/api/seacollections?query=carousel")
+    const res = await axios.get(
+      "http://localhost:3000/api/seacollections?query=carousel"
+    );
 
     if (res.status === 200) {
-      return res
+      return res;
     }
   } catch (error) {
-    
-    return null
+    return null;
   }
-}
+};
 
 export default async function Home() {
+  let data = null;
+  const result = await getData();
 
-  let data = null
-  const result = await getData()
-
-  if (result?.data && result.data.data.length > 0 ) {
-    data = result.data.data
+  if (result?.data && result.data.data.length > 0) {
+    data = result.data.data;
   }
 
-  console.log('carousel');
-  
+  console.log("carousel");
 
   return (
     <main className="">
@@ -114,11 +112,10 @@ export default async function Home() {
           <span className="text-[#00FFFF]">UNIQUE PRODUCTS</span>
         </h1>
         <div className="space-y-8">
-
-        <ExploreMoreCarousel data={data.slice(0,6)} />
-        <ExploreMoreCarousel data={data.slice(4, 10)} opp />
+          <ExploreMoreCarousel data={data ? data.slice(0, 6) : data} />
+          <ExploreMoreCarousel data={data ? data.slice(4, 10) : data} opp />
         </div>
-       
+
         <div className="flex justify-center">
           <button className="p-3 border font-serrat font-bold border-white text-white mx-auto my-16">
             View All Drops
@@ -151,11 +148,9 @@ export default async function Home() {
         </div>
       </section>
 
-      
-
       <DiscordJoin />
 
-      <Faq/>
+      <Faq />
       <NewSLetter />
     </main>
   );
