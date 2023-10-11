@@ -73,11 +73,7 @@ type MobilePopoverProps = {
 };
 
 export function MobileMenuPopover({ open, setOpen }: MobilePopoverProps) {
- 
-
   const pathname = usePathname();
-
- 
 
   return (
     <Transition show={open}>
@@ -98,7 +94,11 @@ export function MobileMenuPopover({ open, setOpen }: MobilePopoverProps) {
         >
           <nav className="lg:hidden text-white bg-backgroundcolor_sec space-y-4 text-sm pb-10">
             <div className="flex items-center justify-between px-5 pt-4">
-              <Link href="/" className="text-lg space-x-2 flex">
+              <Link
+                href="/"
+                className="text-lg space-x-2 flex"
+                onClick={() => setOpen(false)}
+              >
                 <Image src={logo} alt="SPARKZ" />
                 <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-white to-complimentary_1 brightness-110">
                   SPARKZ

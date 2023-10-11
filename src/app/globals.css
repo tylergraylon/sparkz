@@ -60,3 +60,14 @@
   right: 50%; */
   /* margin: 0 auto; */
 }
+
+.faq-text-bg {
+  color: transparent;
+  -webkit-text-stroke: 0.7px #fff;
+  font-size: 15vw;
+  z-index: -10;
+  position: absolute;
+  /* left: 50%;
+  right: 50%; */
+  /* margin: 0 auto; */
+}
