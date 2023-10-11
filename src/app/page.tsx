@@ -15,6 +15,7 @@ import skull_bg from "../../public/skull-bg.png";
 import sparks_ring from "../../public/sparkz-ring.png";
 import Image from "next/image";
 import axios from "axios";
+import Link from "next/link";
 
 const pics = [skull_bg, iphone_bg, mac_bg, flower_bg];
 
@@ -99,7 +100,7 @@ export default async function Home() {
           </button>
 
           <button className="p-3 border border-white text-white">
-            View Roadmap
+            <Link href="/roadmap">View Roadmap</Link>
           </button>
         </div>
       </section>
@@ -113,12 +114,12 @@ export default async function Home() {
         </h1>
         <div className="space-y-8">
           <ExploreMoreCarousel data={data ? data.slice(0, 6) : data} />
-          <ExploreMoreCarousel data={data ? data.slice(4, 10) : data} opp />
+          <ExploreMoreCarousel data={data ? data.slice(6, 12) : data} opp />
         </div>
 
         <div className="flex justify-center">
           <button className="p-3 border font-serrat font-bold border-white text-white mx-auto my-16">
-            View All Drops
+            <Link href="/marketplace">View All Drops</Link>
           </button>
         </div>
       </section>

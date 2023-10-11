@@ -26,11 +26,9 @@ export async function GET(request: NextRequest) {
   const query = searchParams.get("query");
   const page = searchParams.get("p") ?? 1;
 
-  const perPage = 10;
+  const perPage = 20;
 
   let data = [];
-
-
 
   const allData = async (num: number) => {
     const collectionsData = await getCollectionData(num);
@@ -46,7 +44,7 @@ export async function GET(request: NextRequest) {
 
       break;
     case "carousel":
-      data = await allData(10);
+      data = await getCollectionData(12);
       break;
     case "popular":
       data = await getCollectionData(collections.length);
