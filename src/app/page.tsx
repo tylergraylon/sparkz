@@ -35,7 +35,9 @@ const pics = [skull_bg, iphone_bg, mac_bg, flower_bg];
 
 const getData = async () => {
   try {
-    const res = await axios.get("/api/seacollections?query=carousel");
+    const res = await axios.get(
+      "https://sparkz-iota.vercel.app/api/seacollections?query=carousel"
+    );
 
     if (res.status === 200) {
       return res;
