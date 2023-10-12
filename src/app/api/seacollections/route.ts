@@ -55,6 +55,14 @@ export async function GET(request: NextRequest) {
     case "gadgets":
       data = await getGadgetData();
       break;
+    case "price_low_to_high":
+      const res = await getCollectionData(collections.length);
+      data = res.sort((a, b) => Number(a?.floor_price) - Number(b?.floor_price))
+      break;
+    case "price_high_to_low":
+      const result = await getCollectionData(collections.length);
+      data = result.sort((a, b) => Number(b?.floor_price) - Number(a?.floor_price))
+      break;
     default:
       data = await allData(collections.length);
   }

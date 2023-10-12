@@ -6,8 +6,6 @@ import {
   Raffle,
   Faq,
 } from "./components";
-import painting_hand from "../../public/painting_hand.png";
-import jelly from "../../public/jelly.png";
 import mac_bg from "../../public/mac-bg.png";
 import flower_bg from "../../public/flower-bg.png";
 import iphone_bg from "../../public/iphone-bg.png";

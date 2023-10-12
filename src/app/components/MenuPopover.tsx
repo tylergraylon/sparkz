@@ -219,12 +219,19 @@ function MobileMenuDisclosure({ name, items, onClose: setOpen }: Props) {
   );
 }
 
-export const SelectPopover = memo(function SelectPopoverComponent({
+export const SelectPopover = function SelectPopoverComponent({
   items,
 }: Pick<Props, "items">) {
   const searchparams = useSearchParams();
   const filter = searchparams.get("filter");
   const [currentItem, setCurrentItem] = useState(filter ?? "All");
+
+  console.log(filter);
+  console.log(currentItem);
+  if (filter && currentItem !== filter) {
+    setCurrentItem(filter)
+  }
+  
 
   const selectItem = (item: string) => {
     setCurrentItem(item);
@@ -235,7 +242,7 @@ export const SelectPopover = memo(function SelectPopoverComponent({
         {({ open }) => (
           <div className={`flex items-center justify-between w-full px-2`}>
             <span
-              className={`${open && "text-button_color "} text-sm xl:text-base`}
+              className={`${open && "text-button_color "} text-sm xl:text-base capitalize`}
             >
               {currentItem}
             </span>
@@ -279,4 +286,4 @@ export const SelectPopover = memo(function SelectPopoverComponent({
       </Menu.Items>
     </Menu>
   );
-});
+};
