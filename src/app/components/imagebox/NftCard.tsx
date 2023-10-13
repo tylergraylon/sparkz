@@ -20,10 +20,13 @@ export default function NftCard({
   return (
     <>
       <div className="group grid grid-rows-7 relative">
-        <div
+        {
+          type != "gadget" && <div
           className={`${visibility} backdrop-brightness-50
          absolute w-full h-full ${transition}`}
         ></div>
+        }
+        
         <div className="row-span-6 relative">
           <div
             className={`${visibility} backdrop-brightness-50
@@ -70,9 +73,9 @@ export default function NftCard({
               className="p-3 self-end
              font-serrat border border-white text-white
               hover:text-black hover:bg-white transition-colors
-               duration-200 ease-in-out"
+               duration-200 ease-in-out group/cart"
             >
-              Add To Cart
+              <span className="group-hover/cart:hidden">Add To Cart</span> <span className="hidden group-hover/cart:inline"> coming soon</span>
             </button>
           ) : (
             <div className="self-end font-serrat">

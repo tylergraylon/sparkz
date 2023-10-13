@@ -23,7 +23,7 @@ export function NewSLetter() {
         <input
           type="button"
           value="Sign up"
-          className="font-serrat bg-white p-3 b w-full text-black font-semibold rounded-none"
+          className="font-serrat cursor-pointer bg-white hover:bg-[#00FFFF] hover:text-black p-3 b w-full text-black font-semibold rounded-none"
         />
       </form>
     </section>

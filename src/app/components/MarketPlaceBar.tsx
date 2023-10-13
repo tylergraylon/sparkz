@@ -70,8 +70,8 @@ export default function MarketPlaceBar() {
             </svg>
           </button>
 
-          <button className="py-3 px-1 md:px-3 tracking-tight border border-white text-white basis-[30%] text-sm xl:text-base">
-            Buy / Sell
+          <button className="py-3 px-1 md:px-3 tracking-tight border hover:bg-white hover:text-black border-white text-white basis-[30%] text-sm xl:text-base group">
+            <span className="group-hover:hidden">Buy / Sell</span>  <span className="hidden group-hover:inline">Coming soon</span>
           </button>
 
           <Link href="#" className="flex items-center justify-end basis-[9%]">

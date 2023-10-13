@@ -66,7 +66,7 @@ export default function Header() {
 
         <div className="flex justify-between">
           <div>
-            <ButtonConnect className="lg:flex text-sm hidden p-2 bg-white text-black font-serrat font-semibold" />
+            <ButtonConnect className="lg:flex text-sm hidden p-2 bg-white hover:bg-[#00FFFF] text-black font-serrat font-semibold" />
 
             <svg
               xmlns="http://www.w3.org/2000/svg"

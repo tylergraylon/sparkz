@@ -35,7 +35,7 @@ export default function Raffle() {
           ))}
         </div>
 
-        <button className="p-3 border border-white text-white font-serrat w-40 mt-10 md:mt-0">
+        <button className="p-3 font-bold border hover:bg-[#00FFFF] hover:text-black border-white text-white font-serrat w-40 mt-10 md:mt-0">
           Join Contest
         </button>
       </div>

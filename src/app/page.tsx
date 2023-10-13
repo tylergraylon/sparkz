@@ -92,12 +92,15 @@ export default async function Home() {
           <span className="text-white"> accessibility for everyone.</span>
         </p>
 
-        <div className="flex space-x-4 md:space-x-10 justify-center font-serrat font-bold">
-          <button className="p-3 bg-gradient-to-r from-button_color to-complimentary_1">
+        <div className="flex space-x-4 md:space-x-10 justify-center font-serrat font-bold ">
+          <button className="p-3 bg-white hover:bg-[#00FFFF] hover:text-[#00FFFF]">
+            <Link href="/about" className="text-black">
             Learn More
+            </Link>
+            
           </button>
 
-          <button className="p-3 border border-white text-white">
+          <button className="p-3 border border-white hover:border-[#00FFFF] hover:text-[#00FFFF] text-white">
             <Link href="/roadmap">View Roadmap</Link>
           </button>
         </div>
@@ -116,7 +119,7 @@ export default async function Home() {
         </div>
 
         <div className="flex justify-center">
-          <button className="p-3 border font-serrat font-bold border-white text-white mx-auto my-16">
+          <button className="p-3 border font-serrat font-bold border-white hover:bg-[#00FFFF] hover:text-black text-white mx-auto my-16">
             <Link href="/marketplace">View All Drops</Link>
           </button>
         </div>
