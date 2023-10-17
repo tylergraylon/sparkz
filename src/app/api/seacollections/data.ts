@@ -4,7 +4,6 @@ export const collections = [
   "pudgypenguins",
   "degods",
   "clonex",
-  "mutant-ape-yacht-club",
   "lilpudgys",
   "cryptopunks",
   "milady",
@@ -19,6 +18,7 @@ export const collections = [
   "otherdeed",
   "bored-ape-kennel-club",
   "onchainmonkey",
+  "mutant-ape-yacht-club",
   "winds-of-yawanawa",
   "pudgyrods",
 ];
