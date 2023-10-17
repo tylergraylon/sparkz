@@ -37,7 +37,7 @@ const getCategory = async (
 
       return {
         category,
-        img: metadata.data.image_url,
+        img,
       };
     }
     
