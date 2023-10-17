@@ -2,16 +2,36 @@
   {
     "name": "JBL MG-S22 TWS Wireless",
     "price": 9.0,
-    "img": "/sampods.png"
+    "img": "/gadgets/pods-black.png"
   },
   {
-    "name": "Apple Iphone 13 Pro",
+    "name": "Apple Iphone 12 Pro Max",
     "price": 800.0,
-    "img": "/iphone.png"
+    "img": "/gadgets/promax.png"
   },
   {
     "name": "Ledger Nano S Plus",
     "price": 209.44,
-    "img": "/drive.png"
+    "img": "/gadgets/legder-nano.png"
+  },
+  {
+    "name": "Apple Macbook Pro...",
+    "price": 1650.00,
+    "img": "/gadgets/macbook-pro.png"
+  },
+  {
+    "name": "JBL Live 660NC Wireless",
+    "price": 110.99,
+    "img": "/gadgets/jbl-white.png"
+  },
+  {
+    "name": "Apple Macbook Air 12.6...",
+    "price": 1090.99,
+    "img": "/gadgets/mac-spacegray.png"
+  },
+  {
+    "name": "Apple Macbook Pro 14.2...",
+    "price": 1950.99,
+    "img": "/gadgets/macbook.png"
   }
 ]

@@ -13,6 +13,7 @@ export const collections = [
   "doodles-official",
   "boredapeyachtclub",
   "sproto-gremlins",
+  "guttercatgang",
   "otherside-koda",
   "opepen-edition",
   "otherdeed",
