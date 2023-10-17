@@ -28,11 +28,20 @@ const getCategory = async (
       },
     });
 
-    if (metadata.status === 200)
+    if (metadata.status === 200) {
+      const img = metadata.data.image_url.includes('googleusercontent') ? (
+        `${metadata.data.image_url.split('=')[0]}=s1500` 
+      ): (
+        metadata.data.image_url
+      )
+
       return {
         category,
         img: metadata.data.image_url,
       };
+    }
+    
+      
 
     return {
       category,

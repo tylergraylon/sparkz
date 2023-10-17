@@ -102,9 +102,14 @@ const getCollectionData = async (param: number) =>
         const data = await Promise.all([price, metadata]);
 
         if (data[0].status === 200) {
+          const img = data[1].data.image_url.includes('googleusercontent') ? (
+            `${data[1].data.image_url.split('=')[0]}=s1500` 
+          ): (
+            data[1].data.image_url
+          )
           return {
             name: data[1].data.name,
-            img: data[1].data.image_url,
+            img,
             floor_price: data[0].data.total.floor_price.toLocaleString(
               undefined,
               { maximumFractionDigits: 2 }
