@@ -61,7 +61,7 @@ export default function NftCard({
               {name ?? "N/A"}
             </h3>
             <div className="space-y-1 font-serrat ">
-              <h3 className="">Floor Price</h3>
+              <h3 className="text-opacity-70 text-textshade">{type == "gadget" ? "Price" : "Floor Price"}</h3>
               <p className="">
                 {floor_price ?? "N/A"} {type == "gadget" ? "USD" : "ETH"}
               </p>
