@@ -8,7 +8,7 @@ const roadmap = [
   {
     ico: "#1",
     title: "TOKEN DEPLOYMENT",
-    desc: "$SPARKZ our utility token deployment on Ethereum to create more adoption on our marketplace and which will support other Blockchain ",
+    desc: "$SPARKZ our utility token deployment on Solana to create more adoption on our marketplace and which will support other Blockchain ",
   },
   {
     ico: "#2",
@@ -83,6 +83,7 @@ export default function AboutTimeline() {
       <Chrono
         mode="VERTICAL_ALTERNATING"
         hideControls={true}
+        disableToolbar={true}
         theme={{
           primary: "#ffffff",
           secondary: "#FF00FF",
@@ -90,9 +91,9 @@ export default function AboutTimeline() {
         }}
         slideShow
         classNames={{
-          card: "w-0",
+          card: "w-full",
         }}
-        className="-z-10"
+        cardHeight={280}
         timelinePointShape="circle"
         scrollable={false}
       >
@@ -137,8 +138,6 @@ const RoadmapCard = ({
 
   const leftSpring = useSpring(transformLeft, scrollConfig);
   const rightSpring = useSpring(transformRight, scrollConfig);
-
-
 
   return (
     <motion.div

@@ -54,8 +54,6 @@ export default async function Home() {
     data = result.data.data;
   }
 
-  console.log("carousel");
-
   return (
     <main className="">
       <section className="h-[34rem] px-10 bg-[url('/fluid_background.png')] grid grid-cols-1 md:grid-cols-2 pt-14 gap-2 ">
@@ -95,9 +93,8 @@ export default async function Home() {
         <div className="flex space-x-4 md:space-x-10 justify-center font-serrat font-bold ">
           <button className="p-3 bg-white hover:bg-[#00FFFF] hover:text-[#00FFFF]">
             <Link href="/about" className="text-black">
-            Learn More
+              Learn More
             </Link>
-            
           </button>
 
           <button className="p-3 border border-white hover:border-[#00FFFF] hover:text-[#00FFFF] text-white">

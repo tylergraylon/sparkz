@@ -1,146 +1,53 @@
 "use client";
-import "@rainbow-me/rainbowkit/styles.css";
+import React, { FC, ReactNode, useMemo } from "react";
 import {
-  RainbowKitProvider,
-  darkTheme,
-  connectorsForWallets,
-  Wallet,
-  getWalletConnectConnector,
-  Chain,
-} from "@rainbow-me/rainbowkit";
-import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import { mainnet } from "wagmi/chains";
-import { publicProvider } from "wagmi/providers/public";
-import { project_id } from "../../../utils/config";
+  ConnectionProvider,
+  WalletProvider,
+} from "@solana/wallet-adapter-react";
+import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 import {
-  injectedWallet,
-  phantomWallet,
-  metaMaskWallet,
-  ledgerWallet,
-  walletConnectWallet,
-  coinbaseWallet,
-} from "@rainbow-me/rainbowkit/wallets";
+  PhantomWalletAdapter,
+  SolflareWalletAdapter,
+} from "@solana/wallet-adapter-wallets";
+import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
+import { clusterApiUrl } from "@solana/web3.js";
 
-export default function WalletContext({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const { chains, publicClient, webSocketPublicClient } = configureChains(
-    [mainnet],
-    [publicProvider()]
+// Default styles that can be overridden by your app
+import "@solana/wallet-adapter-react-ui/styles.css";
+
+export default function Wallet({ children }: { children: ReactNode }) {
+  // The network can be set to 'devnet', 'testnet', or 'mainnet-beta'.
+  const network = WalletAdapterNetwork.Mainnet;
+
+  // You can also provide a custom RPC endpoint.
+  const endpoint = useMemo(() => clusterApiUrl(network), [network]);
+
+  const wallets = useMemo(
+    () => [
+      /**
+       * Wallets that implement either of these standards will be available automatically.
+       *
+       *   - Solana Mobile Stack Mobile Wallet Adapter Protocol
+       *     (https://github.com/solana-mobile/mobile-wallet-adapter)
+       *   - Solana Wallet Standard
+       *     (https://github.com/anza-xyz/wallet-standard)
+       *
+       * If you wish to support a wallet that supports neither of those standards,
+       * instantiate its legacy wallet adapter here. Common legacy adapters can be found
+       * in the npm package `@solana/wallet-adapter-wallets`.
+       */
+      new PhantomWalletAdapter(),
+      new SolflareWalletAdapter(),
+    ],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [network]
   );
-
-  const connectors = connectorsForWallets([
-    {
-      groupName: "Wallets",
-      wallets: [
-        walletConnectWallet({
-          chains,
-          projectId: project_id,
-        }),
-        metaMaskWallet({ chains, projectId: project_id }),
-        ledgerWallet({ chains, projectId: project_id }),
-        coinbaseWallet({ appName: "SparkzStore", chains }),
-        phantomWallet({ chains }).installed
-          ? phantomWallet({ chains })
-          : Phantom({ chains, projectId: project_id }),
-        injectedWallet({ chains }),
-      ],
-    },
-  ]);
-
-  const wagmiConfig = createConfig({
-    autoConnect: true,
-    connectors,
-    publicClient,
-    webSocketPublicClient,
-  });
 
   return (
-    <WagmiConfig config={wagmiConfig}>
-      <RainbowKitProvider
-        theme={darkTheme()}
-        modalSize="compact"
-        chains={chains}
-      >
-        {children}
-      </RainbowKitProvider>
-    </WagmiConfig>
+    <ConnectionProvider endpoint={endpoint}>
+      <WalletProvider wallets={wallets} autoConnect>
+        <WalletModalProvider>{children}</WalletModalProvider>
+      </WalletProvider>
+    </ConnectionProvider>
   );
 }
-
-interface MyWalletOptions {
-  projectId: string;
-  chains: Chain[];
-}
-
-const Phantom = ({ chains, projectId }: MyWalletOptions): Wallet => ({
-  id: "Phantom",
-  name: "Phantom",
-  iconUrl: phantomWallet({ chains }).iconUrl,
-  iconBackground: phantomWallet({ chains }).iconBackground,
-  downloadUrls: {
-    ...phantomWallet({ chains }).downloadUrls,
-    safari: "https://phantom.app/download",
-    opera: "https://phantom.app/download",
-    edge: "https://phantom.app/download",
-  },
-  createConnector: () => {
-    const connector = getWalletConnectConnector({ projectId, chains });
-
-    return {
-      connector,
-      mobile: {
-        getUri: async () => "https://phantom.app/download",
-      },
-      qrCode: {
-        getUri: async () => {
-          return "https://phantom.app/download";
-        },
-        instructions: {
-          learnMoreUrl: "https://phantom.app/",
-          steps: [
-            {
-              description:
-                "We recommend putting My Wallet on your home screen for faster access to your wallet.",
-              step: "install",
-              title: "Open the My Wallet app",
-            },
-            {
-              description:
-                "After you scan, a connection prompt will appear for you to connect your wallet.",
-              step: "scan",
-              title: "Tap the scan button",
-            },
-          ],
-        },
-      },
-      extension: {
-        instructions: {
-          learnMoreUrl: "https://phantom.app/",
-          steps: [
-            {
-              description:
-                "We recommend pinning My Wallet to your taskbar for quicker access to your wallet.",
-              step: "install",
-              title: "Install the My Wallet extension",
-            },
-            {
-              description:
-                "Be sure to back up your wallet using a secure method. Never share your secret phrase with anyone.",
-              step: "create",
-              title: "Create or Import a Wallet",
-            },
-            {
-              description:
-                "Once you set up your wallet, click below to refresh the browser and load up the extension.",
-              step: "refresh",
-              title: "Refresh your browser",
-            },
-          ],
-        },
-      },
-    };
-  },
-});

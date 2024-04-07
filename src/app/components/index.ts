@@ -11,7 +11,6 @@ import {
 } from "./imagebox";
 import Footer, { NewSLetter } from "./Footer";
 import DiscordJoin from "./JoinDiscord";
-import ButtonConnect from "./ButtonConnect";
 import TokenomicsMeter from "./TokenomicsMeter";
 import ExploreMoreCarousel from "./ExploreMoreCarousel";
 import PageHeader from "./PageHeader";
@@ -31,7 +30,6 @@ export {
   NewSLetter,
   Footer,
   DiscordJoin,
-  ButtonConnect,
   TokenomicsMeter,
   ExploreMoreCarousel,
   PageHeader,

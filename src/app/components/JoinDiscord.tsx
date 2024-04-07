@@ -1,3 +1,4 @@
+import Image from "next/image";
 export default function DiscordJoin() {
   return (
     <section className="relative sm:mx-8 h-[20rem] mt-12 grid grid-cols-1 items-center md:grid-cols-2 md:gap-x-20 px-5">
@@ -5,7 +6,7 @@ export default function DiscordJoin() {
 
       <div className="space-y-5 text-white order-last md:order-none mt-16 md:mt-0 z-10">
         <h2 className="text-2xl md:text-4xl">
-          Join Our <span className="text-complimentary_1">Discord</span>
+          Join Our <span className="text-sky-400">Telegram</span>
         </h2>
 
         <p className="font-serrat text-textshade text-opacity-80 text-base">
@@ -19,9 +20,11 @@ export default function DiscordJoin() {
         </button>
       </div>
 
-      <img
-        src="/discord.svg"
-        alt="discord"
+      <Image
+        src="/telegram.svg"
+        alt="Telegram"
+        width={310}
+        height={200}
         className="justify-self-end h-28 md:h-auto absolute top-5 right-0.5 md:static overflow-clip"
       />
     </section>

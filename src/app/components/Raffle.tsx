@@ -3,8 +3,8 @@ import raffle from "../../../public/raffle.svg";
 import check from "../../../public/check.svg";
 
 const conditions = [
-  "Must be a discord member of $Sparkz",
-  "Follow $Sparkz on Twitter and Medium ",
+  "Must be a Telegram member of $Sparkz",
+  "Follow $Sparkz on Twitter ",
   "Must be a member of $Sparkz Telegram channel",
   "Make sure number of choice is different from others in contest section ",
   "Sit back and relax",

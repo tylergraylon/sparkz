@@ -3,7 +3,7 @@ import { Menu, Transition, Disclosure, Dialog } from "@headlessui/react";
 import Link from "next/link";
 import { Dispatch, SetStateAction, useState, memo } from "react";
 import { CommunityMenu, ResourcesMenu } from "./Header";
-import { ButtonConnect } from ".";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import logo from "../../../public/spark-logo.png";
 import Image from "next/image";
@@ -122,7 +122,9 @@ export function MobileMenuPopover({ open, setOpen }: MobilePopoverProps) {
               </svg>
             </div>
 
-            <ButtonConnect className="px-6 font-serrat pt-6" />
+            <div className="px-6 pt-6">
+              <WalletMultiButton />
+            </div>
 
             <div className="divide-y divide-neutral-400 font-serrat ">
               <div className="py-6 px-6">
@@ -229,9 +231,8 @@ export const SelectPopover = function SelectPopoverComponent({
   console.log(filter);
   console.log(currentItem);
   if (filter && currentItem !== filter) {
-    setCurrentItem(filter)
+    setCurrentItem(filter);
   }
-  
 
   const selectItem = (item: string) => {
     setCurrentItem(item);
@@ -242,7 +243,9 @@ export const SelectPopover = function SelectPopoverComponent({
         {({ open }) => (
           <div className={`flex items-center justify-between w-full px-2`}>
             <span
-              className={`${open && "text-button_color "} text-sm xl:text-base capitalize`}
+              className={`${
+                open && "text-button_color "
+              } text-sm xl:text-base capitalize`}
             >
               {currentItem}
             </span>

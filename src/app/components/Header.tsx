@@ -1,26 +1,24 @@
 "use client";
 
 import { useState } from "react";
-import { MenuPopover, MobileMenuPopover, ButtonConnect } from ".";
+import { MenuPopover, MobileMenuPopover } from ".";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import logo from "../../../public/spark-logo.png";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 
 export const CommunityMenu = {
   name: "Community",
   items: [
-    { name: "Discord", link: "#" },
     { name: "Twitter", link: "#" },
     { name: "Telegram", link: "#" },
-    { name: "Medium", link: "#" },
   ],
 };
 
 export const ResourcesMenu = {
   name: "Resources",
   items: [
-    { name: "Whitepaper", link: "/whitepaper" },
     { name: "Roadmap", link: "/roadmap" },
     { name: "Tokenomics", link: "/tokenomics" },
   ],
@@ -66,7 +64,10 @@ export default function Header() {
 
         <div className="flex justify-between">
           <div>
-            <ButtonConnect className="lg:flex text-sm hidden p-2 bg-white hover:bg-[#00FFFF] text-black font-serrat font-semibold" />
+            {/* <ButtonConnect className="lg:flex text-sm hidden p-2 bg-white hover:bg-[#00FFFF] text-black font-serrat font-semibold" /> */}
+            <div className="lg:flex text-sm hidden border hover:border-[#00FFFF] font-serrat font-semibold">
+              <WalletMultiButton />
+            </div>
 
             <svg
               xmlns="http://www.w3.org/2000/svg"
