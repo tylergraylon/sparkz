@@ -2,7 +2,7 @@
 
 import { Chrono } from "react-chrono";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const roadmap = [
   {
@@ -78,6 +78,14 @@ const roadmap = [
 ];
 
 export default function AboutTimeline() {
+  const [hydra, setHydra] = useState(false);
+
+  useEffect(() => {
+    setHydra(true);
+  }, []);
+  if (!hydra) {
+    return null;
+  }
   return (
     <div className="w-full text-white">
       <Chrono
