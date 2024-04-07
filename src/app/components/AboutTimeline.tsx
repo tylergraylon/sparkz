@@ -103,7 +103,7 @@ export default function AboutTimeline() {
         }}
         cardHeight={280}
         timelinePointShape="circle"
-        scrollable={false}
+        scrollable={true}
       >
         {roadmap.map((road, index) => (
           <RoadmapCard road={road} index={index} key={index} />
