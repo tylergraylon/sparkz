@@ -1,7 +1,7 @@
 "use client";
 import { Menu, Transition, Disclosure, Dialog } from "@headlessui/react";
 import Link from "next/link";
-import { Dispatch, SetStateAction, useState, memo } from "react";
+import { Dispatch, SetStateAction, useState, memo, useEffect } from "react";
 import { CommunityMenu, ResourcesMenu } from "./Header";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
@@ -17,6 +17,12 @@ type Props = {
 
 export default function MenuPopover({ name, items }: Props) {
   const pathname = usePathname();
+  const [hydrate, setHydrate] = useState(false);
+
+  useEffect(() => {
+    setHydrate(true);
+  }, []);
+  if (!hydrate) return null;
   return (
     <Menu as="div" className="relative">
       <Menu.Button className={`flex items-center space-x-2`}>

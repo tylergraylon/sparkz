@@ -57,11 +57,15 @@ export async function GET(request: NextRequest) {
       break;
     case "price_low_to_high":
       const res = await getCollectionData(collections.length);
-      data = res.sort((a, b) => Number(a?.floor_price) - Number(b?.floor_price))
+      data = res.sort(
+        (a, b) => Number(a?.floor_price) - Number(b?.floor_price)
+      );
       break;
     case "price_high_to_low":
       const result = await getCollectionData(collections.length);
-      data = result.sort((a, b) => Number(b?.floor_price) - Number(a?.floor_price))
+      data = result.sort(
+        (a, b) => Number(b?.floor_price) - Number(a?.floor_price)
+      );
       break;
     default:
       data = await allData(collections.length);
@@ -102,11 +106,9 @@ const getCollectionData = async (param: number) =>
         const data = await Promise.all([price, metadata]);
 
         if (data[0].status === 200) {
-          const img = data[1].data.image_url.includes('googleusercontent') ? (
-            `${data[1].data.image_url.split('=')[0]}=s1500` 
-          ): (
-            data[1].data.image_url
-          )
+          const img = data[1].data.image_url.includes("googleusercontent")
+            ? `${data[1].data.image_url.split("=")[0]}=s1500`
+            : data[1].data.image_url;
           return {
             name: data[1].data.name,
             img,
@@ -118,6 +120,7 @@ const getCollectionData = async (param: number) =>
               data[0].data.total.volume as number
             ).toLocaleString(),
             type: "nft",
+            chain: data[1].data.payment_tokens[0].chain,
           };
         }
 
@@ -127,6 +130,7 @@ const getCollectionData = async (param: number) =>
           floor_price: "N/A",
           weekly_volume: "N/A",
           type: "nft",
+          chain: "N/A",
         };
       } catch (error) {
         // console.log("error", error);
@@ -143,5 +147,6 @@ const getGadgetData = async () => {
     floor_price: item.price,
     weekly_volume: "N/A",
     type: "gadget",
+    chain: "N/A",
   }));
 };

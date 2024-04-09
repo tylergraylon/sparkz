@@ -7,71 +7,41 @@ import { useEffect, useRef, useState } from "react";
 const roadmap = [
   {
     ico: "#1",
-    title: "TOKEN DEPLOYMENT",
-    desc: "$SPARKZ our utility token deployment on Solana to create more adoption on our marketplace and which will support other Blockchain ",
-  },
-  {
-    ico: "#2",
     title: "SOCIAL MEDIA LAUNCH 1.0",
     desc: "Creating hype alongside creating a strong community as much as we could before the actual launch",
   },
   {
-    ico: "#3",
+    ico: "#2",
     title: "MARKETING WEEK",
     desc: "Rewarding captivating threads from members. Sponsored marketing across all social media to bring more sight to our project. Airdrop and other activities",
   },
   {
-    ico: "#4",
+    ico: "#3",
     title: "WEBSITE LAUNCH",
     desc: "Our website will be launched with great insight for everyone to see how our marketplace and access to other tools we building on our marketplace before it goes live after $SPARKZ Presale.",
   },
   {
-    ico: "#5",
-    title: "SPARKZ WHITEPAPER",
-    desc: "An explanatory whitepaper about $SPARKZ STORE and our utility token ($SPARKZ) which aims to educate its readers about our mission for the best interest of the community regarding to our marketplace.",
-  },
-  {
-    ico: "#6",
-    title: "SOCIAL MEDIA LAUNCH 2.0",
-    desc: "We reached out to several top projects to partner up with promotion of our project and preparation with other CEX and DEX for our token launch and listing.",
-  },
-  {
-    ico: "#7",
-    title: "PARTNERSHIP WEEK",
-    desc: "We reached out to several top projects to partner up with promotion of our project and preparation with other CEX and DEX for our token launch and listing.",
-  },
-  {
-    ico: "#8",
-    title: "SPARKZ AMBASSADORS",
-    desc: "This is for our ambassador reward program to recruit good and intelligent representatives for our marketplace.",
-  },
-  {
-    ico: "#9",
+    ico: "#4",
     title: "CONTEST / GAMES",
     desc: "Several discord games were launched to entertain our community during our first games week.",
   },
   {
-    ico: "#10",
-    title: "AMA",
-    desc: "Our first AMA, Answering community questions, sharing vital information to everyone on our space. Telling them more about our Marketplace.",
-  },
-  {
-    ico: "#11",
+    ico: "#5",
     title: "PRESALE",
     desc: "You can buy our utility token on our launchpad first. You can then spend this token on our marketplace. Other projects can also use our launchpad to sell their tokens.",
   },
   {
-    ico: "#12",
+    ico: "#6",
     title: "AIRDROP DISTRIBUTION",
     desc: "All allocated airdrop will be sent out to the community that made the list through tasks and some selected active members who supported  us.",
   },
   {
-    ico: "#13",
+    ico: "#7",
     title: "MARKETPLACE GOES LIVE",
     desc: "$Sparkz marketplace will go live to enable users to sell/buy items on our marketplace. You can become a vendor by purchasing a space.",
   },
   {
-    ico: "#14",
+    ico: "#8",
     title: "ROADMAP 2.2",
     desc: "MVP of $Sparkz app release",
   },

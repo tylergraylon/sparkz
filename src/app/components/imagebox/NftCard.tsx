@@ -6,6 +6,7 @@ export type NftProps = {
   floor_price: number | string;
   weekly_volume: number | string;
   type: string;
+  chain: string;
 };
 
 export default function NftCard({
@@ -14,19 +15,20 @@ export default function NftCard({
   weekly_volume,
   floor_price,
   type,
+  chain,
 }: NftProps) {
   const transition = "transition-all duration-[700ms] ease-in-out";
   const visibility = "opacity-0 group-hover:opacity-100";
   return (
     <>
       <div className="group grid grid-rows-7 relative">
-        {
-          type != "gadget" && <div
-          className={`${visibility} backdrop-brightness-50
+        {type != "gadget" && (
+          <div
+            className={`${visibility} backdrop-brightness-50
          absolute w-full h-full ${transition}`}
-        ></div>
-        }
-        
+          ></div>
+        )}
+
         <div className="row-span-6 relative">
           <div
             className={`${visibility} backdrop-brightness-50
@@ -61,9 +63,12 @@ export default function NftCard({
               {name ?? "N/A"}
             </h3>
             <div className="space-y-1 font-serrat ">
-              <h3 className="text-opacity-70 text-textshade">{type == "gadget" ? "Price" : "Floor Price"}</h3>
+              <h3 className="text-opacity-70 text-textshade">
+                {type == "gadget" ? "Price" : "Floor Price"}
+              </h3>
               <p className="">
-                {floor_price ?? "N/A"} {type == "gadget" ? "USD" : "ETH"}
+                {floor_price ?? "N/A"}{" "}
+                {type == "gadget" ? "USD" : chain == "ethereum" ? "ETH" : "SOL"}
               </p>
             </div>
           </div>
@@ -75,14 +80,18 @@ export default function NftCard({
               hover:text-black hover:bg-white transition-colors
                duration-200 ease-in-out group/cart"
             >
-              <span className="group-hover/cart:hidden">Add To Cart</span> <span className="hidden group-hover/cart:inline"> coming soon</span>
+              <span className="group-hover/cart:hidden">Add To Cart</span>{" "}
+              <span className="hidden group-hover/cart:inline">
+                {" "}
+                coming soon
+              </span>
             </button>
           ) : (
             <div className="self-end font-serrat">
               <div className="pr-1 space-y-1">
                 <h3 className="">Volume</h3>
                 <p className="whitespace-nowrap">
-                  {weekly_volume ?? "N/A"} ETH
+                  {weekly_volume ?? "N/A"} {chain == "ethereum" ? "ETH" : "SOL"}
                 </p>
               </div>
             </div>
