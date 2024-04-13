@@ -29,10 +29,7 @@ export default function MarketPlaceBar() {
 
   return (
     <section className="mx-5 sm:mx-8">
-      <form
-        action=""
-        className="grid grid-cols-1 lg:grid-cols-2 gap-3 font-serrat"
-      >
+      <form className="grid grid-cols-1 lg:grid-cols-2 gap-3 font-serrat">
         <input
           type="text"
           className="border border-white text-white bg-transparent rounded-none p-3 placeholder:font-serrat"
@@ -70,8 +67,12 @@ export default function MarketPlaceBar() {
             </svg>
           </button>
 
-          <button className="py-3 px-1 md:px-3 tracking-tight border hover:bg-white hover:text-black border-white text-white basis-[30%] text-sm xl:text-base group">
-            <span className="group-hover:hidden">Buy / Sell</span>  <span className="hidden group-hover:inline">Coming soon</span>
+          <button
+            type="button"
+            className="py-3 px-1 md:px-3 tracking-tight border hover:bg-white hover:text-black border-white text-white basis-[30%] text-sm xl:text-base group"
+          >
+            <span className="group-hover:hidden">Buy / Sell</span>{" "}
+            <span className="hidden group-hover:inline">Coming soon</span>
           </button>
 
           <Link href="#" className="flex items-center justify-end basis-[9%]">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MenuPopover, MobileMenuPopover } from ".";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -26,7 +26,13 @@ export const ResourcesMenu = {
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [hydrate, setHydrate] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    setHydrate(true);
+  }, []);
+  if (!hydrate) return null;
   return (
     <>
       <header className="h-20  text-white px-8 flex items-center justify-between border-opacity-20">

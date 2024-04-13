@@ -33,11 +33,9 @@ const pics = [skull_bg, iphone_bg, mac_bg, flower_bg];
 //   },
 // ];
 
-const getData = async () => {
+const getData = async (baseUrl: string) => {
   try {
-    const res = await axios.get(
-      "http://localhost:3000/api/seacollections?query=carousel"
-    );
+    const res = await axios.get(`${baseUrl}api/seacollections?query=carousel`);
 
     if (res.status === 200) {
       return res;
@@ -49,7 +47,7 @@ const getData = async () => {
 
 export default async function Home() {
   let data = null;
-  const result = await getData();
+  const result = await getData("https://sparkz-iota.vercel.app/");
 
   if (result?.data && result.data.data.length > 0) {
     data = result.data.data;
