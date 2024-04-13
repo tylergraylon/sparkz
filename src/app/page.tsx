@@ -14,6 +14,7 @@ import sparks_ring from "../../public/sparkz-ring.png";
 import Image from "next/image";
 import axios from "axios";
 import Link from "next/link";
+import { headers } from "next/headers";
 
 const pics = [skull_bg, iphone_bg, mac_bg, flower_bg];
 
@@ -35,7 +36,7 @@ const pics = [skull_bg, iphone_bg, mac_bg, flower_bg];
 const getData = async () => {
   try {
     const res = await axios.get(
-      "https://sparkz-iota.vercel.app/api/seacollections?query=carousel"
+      "http://localhost:3000/api/seacollections?query=carousel"
     );
 
     if (res.status === 200) {

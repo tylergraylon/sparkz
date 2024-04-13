@@ -7,3 +7,5 @@ export const GET_COLLECTION = (slug: string) =>
 
 export const GET_COLLECTION_ANALYTICS = (slug: string) =>
   `${BASE_URL}/collections/${slug}/stats`;
+
+export const SOLANA_NFTS = `https://api-mainnet.magiceden.dev/v2/marketplace/popular_collections?timeRange=7d`;

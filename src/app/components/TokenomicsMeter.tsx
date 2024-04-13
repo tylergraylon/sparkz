@@ -17,7 +17,7 @@ export default function TokenomicsMeter({
         className={`${gradPercent} col-span-2 sm:col-span-3 h-5 bg-gradient-to-r from-transparent ${color} justify-self-end`}
       ></div>
 
-      <div className="col-span-4 sm:col-span-3 grid grid-cols-8">
+      <div className="col-span-4 sm:col-span-3 grid grid-cols-8 overflow-clip">
         <span className="ml-2 text-sm sm:text-base col-span-2 md:col-span-1">
           {percent}
         </span>

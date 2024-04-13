@@ -1,6 +1,10 @@
 import axios from "axios";
 import { collections, SEA_API_KEY } from "./data";
-import { GET_COLLECTION_ANALYTICS, GET_COLLECTION } from "@/services/endPoints";
+import {
+  GET_COLLECTION_ANALYTICS,
+  GET_COLLECTION,
+  SOLANA_NFTS,
+} from "@/services/endPoints";
 import { NextResponse, NextRequest } from "next/server";
 
 type DataDto =
@@ -10,6 +14,7 @@ type DataDto =
       floor_price: any;
       weekly_volume: any;
       type: string;
+      chain: string;
     }
   | undefined;
 
@@ -88,8 +93,8 @@ export async function GET(request: NextRequest) {
   });
 }
 
-const getCollectionData = async (param: number) =>
-  await Promise.all(
+const getCollectionData = async (param: number) => {
+  const eth = await Promise.all(
     collections.slice(0, param).map(async (col) => {
       try {
         const price = await axios.get(GET_COLLECTION_ANALYTICS(col), {
@@ -139,6 +144,11 @@ const getCollectionData = async (param: number) =>
     })
   );
 
+  const solana = await getSolanaNfts();
+
+  return [...solana, ...eth];
+};
+
 const getGadgetData = async () => {
   const gadgets = await import("./gadgets.json").then((res) => res.default);
   return gadgets.map((item) => ({
@@ -149,4 +159,34 @@ const getGadgetData = async () => {
     type: "gadget",
     chain: "N/A",
   }));
+};
+
+const getSolanaNfts = async (): Promise<DataDto[]> => {
+  try {
+    const LAMPORTS_PER_SOL = 1000000000;
+    const response = await axios.get(SOLANA_NFTS);
+
+    if (response.status === 200) {
+      return response.data.slice(0, 20).map((res: any) => ({
+        name: res.name,
+        img: res.image,
+        floor_price: (res.floorPrice / LAMPORTS_PER_SOL).toFixed(2),
+        weekly_volume: res.volumeAll.toFixed(2),
+        type: "nft",
+        chain: "solana",
+      }));
+    }
+    return [
+      {
+        name: "N/A",
+        img: "N/A",
+        floor_price: "N/A",
+        weekly_volume: "N/A",
+        type: "nft",
+        chain: "N/A",
+      },
+    ];
+  } catch (error) {
+    return [];
+  }
 };
