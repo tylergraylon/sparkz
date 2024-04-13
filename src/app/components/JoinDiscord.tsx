@@ -25,7 +25,7 @@ export default function DiscordJoin() {
         alt="Telegram"
         width={310}
         height={200}
-        className="justify-self-end w-28 md:w-72 absolute top-5 right-2 -2-10"
+        className="justify-self-end w-24 md:w-72 absolute top-5 right-2 -2-10"
       />
     </section>
   );
