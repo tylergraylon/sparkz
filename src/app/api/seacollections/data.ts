@@ -2,12 +2,8 @@ export const SEA_API_KEY = "6dbbe663b80242aebccf74d53405d9e2";
 
 export const collections = [
   "pudgypenguins",
-  "famous-fox-federation",
   "degods",
-  "cega-super-sanics",
-  "honeyland-generations-bees",
   "clonex",
-  "best-buds",
   "lilpudgys",
   "meekolony",
   "cryptopunks",
