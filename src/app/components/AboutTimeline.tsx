@@ -23,7 +23,7 @@ const roadmap = [
   {
     ico: "#4",
     title: "CONTEST / GAMES",
-    desc: "Several discord games were launched to entertain our community during our first games week.",
+    desc: "Several social media games were launched to entertain our community during our first games week.",
   },
   {
     ico: "#5",
