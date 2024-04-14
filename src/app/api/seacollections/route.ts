@@ -167,7 +167,7 @@ const getSolanaNfts = async (): Promise<DataDto[]> => {
     const response = await axios.get(SOLANA_NFTS);
 
     if (response.status === 200) {
-      return response.data.slice(0, 20).map((res: any) => ({
+      return response.data.slice(0, 28).map((res: any) => ({
         name: res.name,
         img: res.image,
         floor_price: (res.floorPrice / LAMPORTS_PER_SOL).toFixed(2),
