@@ -1,8 +1,8 @@
 "use client";
 import Image, { StaticImageData } from "next/image";
 import setting_icon from "../../../../public/setting_icons.svg";
-import eth from "../../../../public/eth.png";
-import sparkzswap from "../../../../public/spark-logo.png";
+import eth from "../../../../public/Solana.svg";
+import sparkzswap from "../../../../public/sparkz-logo.svg";
 import coming_soon from "../../../../public/coming_soon.svg";
 import { useState } from "react";
 
@@ -51,7 +51,7 @@ export default function Swap() {
           From
         </p>
 
-        <SwapTile coin="ETH" img={eth} />
+        <SwapTile coin="SOL" img={eth} />
 
         <div className="p-3 bg-[#35315C] my-4 w-[10%] mx-auto flex justify-center">
           <svg
@@ -100,7 +100,7 @@ function SwapTile({
       </span>
 
       <span className="bg-black rounded-e-full rounded-s-full px-4 flex items-center space-x-2">
-        <Image src={img} alt="sparkz_swap" />
+        <Image src={img} alt="sparkz_swap" width={65} height={50} />
 
         <p>{coin}</p>
 
